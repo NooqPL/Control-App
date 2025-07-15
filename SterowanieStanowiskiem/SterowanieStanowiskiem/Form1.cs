@@ -267,6 +267,8 @@ namespace SterowanieStanowiskiem
                 // checkBoxValve1.Checked = true;
             }
             else
+            /// d
+            /// 
             {
                 port.WriteLine("OPEN1");
                 isValve1Open = false;
