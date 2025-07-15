@@ -1,0 +1,14 @@
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\bin\Debug\SterowanieStanowiskiem.exe.config
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\bin\Debug\SterowanieStanowiskiem.exe
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\bin\Debug\SterowanieStanowiskiem.pdb
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.csproj.AssemblyReference.cache
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.csproj.SuggestedBindingRedirects.cache
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.Properties.Resources.resources
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.csproj.GenerateResource.cache
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.csproj.CoreCompileInputs.cache
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.exe
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.pdb
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\bin\Debug\background.png
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\bin\Debug\stand.png
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.SplashScreen.resources
+C:\Users\Nooq\Documents\GitHub\teststand\SterowanieStanowiskiem\SterowanieStanowiskiem\obj\Debug\SterowanieStanowiskiem.MainWindow.resources
