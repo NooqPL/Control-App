@@ -10,18 +10,25 @@ public class FakePort
 
     public void Open()
     {
-        _timer = new Timer(1000); // 1 sekunda
+        _timer = new Timer(5000); // co 1 sekundę
         _timer.Elapsed += (s, e) =>
         {
-            string fakeData = "TEMP:" + (20 + _rand.NextDouble() * 30).ToString("0.0");
-            DataReceived?.Invoke(fakeData);
+            double temp = 20 + _rand.NextDouble() * 30;
+            double pressure = _rand.NextDouble() * 10;      // 0.0 - 10.0 bar
+            int fuel = _rand.Next(0, 101);                  // 0 - 100 %
+
+            // Symuluj dane telemetryczne
+            DataReceived?.Invoke($"TEMP:{temp:0.0}");
+            DataReceived?.Invoke($"PRESSURE={pressure:0.0}");
+            DataReceived?.Invoke($"FUEL={fuel}");
         };
+
         _timer.Start();
     }
 
     public void WriteLine(string command)
     {
         Console.WriteLine("Wysłano komendę: " + command);
-        // Można tu dodać logikę odpowiedzi np. na OPEN/CLOSE
+        // Możesz tu dorobić odpowiedź, np. symulować otwarcie zaworu
     }
 }

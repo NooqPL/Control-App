@@ -23,7 +23,7 @@ namespace SterowanieStanowiskiem
             Application.DoEvents(); // wymuś wyświetlenie
 
             // 2. Poczekaj kilka sekund
-            System.Threading.Thread.Sleep(1000); // 3 sekundy
+            System.Threading.Thread.Sleep(1500); // 3 sekundy
 
             // 3. Zamknij splash i uruchom główną aplikację
             splash.Close();

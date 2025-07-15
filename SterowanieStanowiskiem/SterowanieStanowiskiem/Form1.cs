@@ -20,6 +20,13 @@ namespace SterowanieStanowiskiem
         {
             InitializeComponent();
 
+
+
+
+
+
+
+
             port = new FakePort();
             port.DataReceived += Port_DataReceived;
 
@@ -39,30 +46,93 @@ namespace SterowanieStanowiskiem
 
 
 
+
+
+
             //pictureBackground.Image = Image.FromFile("stand.png");
             // pictureBackground.Size = new Size(1920, 1080); // lub inny rozmiar
             // CenterPictureBox();
 
 
+
+
+
+            btnToggleValve1.Text = "OPEN";
+            btnToggleValve1.BackColor = Color.LightGreen;
+            // checkBoxValve1.Checked = false;
+
+            btnToggleValve2.Text = "OPEN";
+            btnToggleValve2.BackColor = Color.LightGreen;
+            //checkBoxValve2.Checked = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
+
+
+        private bool isValve1Open = false;
+        private bool isValve2Open = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             port.WriteLine("OPEN");
 
-            
+
         }
         private void btnCloseValve_Click(object sender, EventArgs e)
         {
             port.WriteLine("CLOSE");
 
-            
+
         }
         private void Port_DataReceived(string data)
         {
             Invoke(new Action(() =>
             {
-                lblSensorData.Text = "Odczyt: " + data;
+                ProcessIncomingData(data);
             }));
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -160,24 +230,111 @@ namespace SterowanieStanowiskiem
 
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string data = serialPort.ReadExisting();
+            string data = serialPort.ReadLine();
 
-            // Cross-thread UI update
-            this.Invoke(new MethodInvoker(() =>
+            Invoke(new Action(() =>
             {
-                textBoxTerminal.AppendText(data);
+                ProcessIncomingData(data);
             }));
         }
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
-    
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
- 
+        }
 
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnToggleValve1_Click(object sender, EventArgs e)
+        {
+            if (!isValve1Open)
+            {
+                port.WriteLine("CLOSE1");
+                isValve1Open = true;
+                btnToggleValve1.Text = "CLOSE";
+                btnToggleValve1.BackColor = Color.IndianRed;
+                // checkBoxValve1.Checked = true;
+            }
+            else
+            {
+                port.WriteLine("OPEN1");
+                isValve1Open = false;
+                btnToggleValve1.Text = "OPEN";
+                btnToggleValve1.BackColor = Color.LightGreen;
+                // checkBoxValve1.Checked = false;
+            }
+
+            // LogTelemetry(isValve1Open ? "OPEN1" : "CLOSE1");
+        }
+
+        private void btnToggleValve2_Click(object sender, EventArgs e)
+        {
+            if (!isValve2Open)
+            {
+                port.WriteLine("CLOSE2");
+                isValve2Open = true;
+                btnToggleValve2.Text = "CLOSE";
+                btnToggleValve2.BackColor = Color.IndianRed;
+                //  checkBoxValve2.Checked = true;
+            }
+            else
+            {
+                port.WriteLine("OPEN2");
+                isValve2Open = false;
+                btnToggleValve2.Text = "OPEN";
+                btnToggleValve2.BackColor = Color.LightGreen;
+                //  checkBoxValve2.Checked = false;
+            }
+
+            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+        }
+
+        private void lblSensorData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void ProcessIncomingData(string data)
+        {
+            lblSensorData.Text = "Odczyt: " + data;
+
+            if (data.StartsWith("PRESSURE="))
+            {
+                string val = data.Replace("PRESSURE=", "").Trim();
+                if (double.TryParse(val, out double pressure))
+                {
+                    int percent = (int)(pressure * 10);
+                    percent = Math.Min(100, Math.Max(0, percent));
+                    progressPressure.Value = percent;
+                    labelPressure.Text = $"{pressure:0.0} bar";
+                }
+            }
+            else if (data.StartsWith("FUEL="))
+            {
+                string val = data.Replace("FUEL=", "").Trim();
+                if (int.TryParse(val, out int fuel))
+                {
+                    fuel = Math.Min(100, Math.Max(0, fuel));
+                    progressFuel.Value = fuel;
+                    labelFuel.Text = $"{fuel}%";
+                }
+            }
+
+            textBoxTerminal.AppendText(data + Environment.NewLine);
+        }
     }
 
 

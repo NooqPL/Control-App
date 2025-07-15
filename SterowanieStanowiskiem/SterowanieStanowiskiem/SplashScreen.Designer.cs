@@ -37,7 +37,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::SterowanieStanowiskiem.Properties.Resources.Logo_whole_white_TranspBk_2048x532;
+            this.pictureBox1.Image = global::SterowanieStanowiskiem.Properties.Resources.ArcLogo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1444, 881);

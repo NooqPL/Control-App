@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SterowanieStanowiskiem.exe" version="1.0.4.5" publicKeyToken="ba533faf9138bdfc" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="stargate.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="SterowanieStanowiskiem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="SterowanieStanowiskiem.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SterowanieStanowiskiem.exe" size="184720">
+      <assemblyIdentity name="SterowanieStanowiskiem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>QlwQOSXRZOOzd9zhUumHuGeIhkg6PJHBBcTkejqwJCs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="background.png" size="2154">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pO9DKY9C/344HINHogrwDVYhJ8dybLyeLknSySC8ljM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Logo_whole_white_TranspBk-2048x532.png" size="54473">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hGBQkJFnvfkZ51GAAS6peBiAnKpySuwOI8Uy6YNNRC4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="stand.png" size="5425">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yKrUBz6bTWyGGTX8ZYqKjDyrnlZ0s/z+/0JwGStV4IE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="stargate.ico" size="4286">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PY4Ow0yD/Vd8cVvXMjW8seyFbcgCz2U9lIGryYfEFH4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="SterowanieStanowiskiem.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MDD\KROR" issuerKeyHash="b66d6d7d93bfa182b6ba1fad6cab0f6987199497" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ieFIxTIdWL6p8RayvLA2AbKbP7YNEsHSZo6zhsVVa/I=</DigestValue></Reference></SignedInfo><SignatureValue>VmHyW+iqF544aFd3Ixf9C3nTXnlqNzp1yNKpGPRop/LodlNAki7pKoqcS23/ssRwALVh6EMggndrM2/OWvZhkmP5VdnTEY0WIfQ5ysuYafcJzNg4mh2le2e/A+frPVJtBLi3+l4rGqZRRTqiBetv//PdDbA6UbWxuXZ04uVhaTI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>1DzGPbXAQMm9KmIKIhzzHtdzfVX4ZChDf7XrwbMeUfmU7iXd/22VOEsnpEbOtBTzPEBDLT5Y2NYQQv/tGEEVxF3lRZTwq5fM5ldgr676vEFLy+m79H0myK/mV6bwXRac67I0zYEkjUAcNZR7ChO4NMzaFTe1AYL1I7vaMpYRJDE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f26b55c586b38e66d2c1120db63f9bb20136b0bcb216f1a9be581d32c548e189" Description="" Url=""><as:assemblyIdentity name="SterowanieStanowiskiem.exe" version="1.0.4.5" publicKeyToken="ba533faf9138bdfc" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MDD\KROR</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>HBQqnjp46SyF4xIge4Um97OP1WyxlQ1gCwJBvGrpX4E=</DigestValue></Reference></SignedInfo><SignatureValue>YbsfheYPiAuA2ro8RL8fAChu/0FDv/eGt8PJEssQ8ZlYbbF7nE/F3glzoOthFXS1RS42O6hLduk9ul4lITyk8h8OPwAPqJltShnETen/nEchutd7DGXBKPBjes2Pm02RSpUCXnICvNxh2sCQFCkBFdyZc5zl1uau6IXbdxSfonQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1DzGPbXAQMm9KmIKIhzzHtdzfVX4ZChDf7XrwbMeUfmU7iXd/22VOEsnpEbOtBTzPEBDLT5Y2NYQQv/tGEEVxF3lRZTwq5fM5ldgr676vEFLy+m79H0myK/mV6bwXRac67I0zYEkjUAcNZR7ChO4NMzaFTe1AYL1I7vaMpYRJDE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBuTCCASKgAwIBAgIQZb01oAGJJ4NI74PMzcWj3jANBgkqhkiG9w0BAQsFADAbMRkwFwYDVQQDHhAATQBEAEQAXABLAFIATwBSMB4XDTI1MDcxNTExMDExOFoXDTI2MDcxNTE3MDExOFowGzEZMBcGA1UEAx4QAE0ARABEAFwASwBSAE8AUjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1DzGPbXAQMm9KmIKIhzzHtdzfVX4ZChDf7XrwbMeUfmU7iXd/22VOEsnpEbOtBTzPEBDLT5Y2NYQQv/tGEEVxF3lRZTwq5fM5ldgr676vEFLy+m79H0myK/mV6bwXRac67I0zYEkjUAcNZR7ChO4NMzaFTe1AYL1I7vaMpYRJDECAwEAATANBgkqhkiG9w0BAQsFAAOBgQBmpnxqy06bsbtQxaoWn56sRQ+ZnQUKgAwqms7bSjYYe0FDmdKLQZZQWTZwCsyjB1U9OZzRLGvIEFlUCAHbm+v2akeJzlSG2UCIpmRionKuRL7LzHRNX7WOpwhFLemKJpHKcUnq0KpglpwtEUSMc7LscjWRsVl4yge8TOlFVmWm7w==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

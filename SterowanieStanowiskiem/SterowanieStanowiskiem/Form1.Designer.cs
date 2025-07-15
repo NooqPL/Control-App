@@ -35,14 +35,10 @@
             this.lblSensorData = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.pictureBackground = new System.Windows.Forms.PictureBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -54,8 +50,27 @@
             this.textBoxSend = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serialPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnToggleValve1 = new System.Windows.Forms.Button();
+            this.btnToggleValve2 = new System.Windows.Forms.Button();
+            this.progressPressure = new System.Windows.Forms.ProgressBar();
+            this.labelPressure = new System.Windows.Forms.Label();
+            this.progressFuel = new System.Windows.Forms.ProgressBar();
+            this.labelFuel = new System.Windows.Forms.Label();
+            this.TelemetriaGroupBox = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.TelemetriaGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOpenValve
@@ -89,6 +104,7 @@
             this.lblSensorData.Size = new System.Drawing.Size(28, 13);
             this.lblSensorData.TabIndex = 2;
             this.lblSensorData.Text = "Test";
+            this.lblSensorData.Click += new System.EventHandler(this.lblSensorData_Click);
             // 
             // timer1
             // 
@@ -98,31 +114,12 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(494, 481);
+            this.label1.Location = new System.Drawing.Point(511, 475);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Test";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(473, 526);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(473, 497);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Open";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -158,34 +155,12 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(566, 366);
+            this.label3.Location = new System.Drawing.Point(572, 375);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "Test";
             this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // button5
-            // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button5.Location = new System.Drawing.Point(545, 411);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Close";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button6.Location = new System.Drawing.Point(545, 382);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Open";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // pictureBackground
             // 
@@ -202,9 +177,9 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 12);
+            this.checkedListBox1.Location = new System.Drawing.Point(12, 250);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(204, 214);
+            this.checkedListBox1.Size = new System.Drawing.Size(195, 214);
             this.checkedListBox1.TabIndex = 13;
             // 
             // listView1
@@ -291,7 +266,7 @@
             this.groupBox1.Controls.Add(this.btnConnectCom);
             this.groupBox1.Controls.Add(this.textBoxSend);
             this.groupBox1.Controls.Add(this.textBoxTerminal);
-            this.groupBox1.Location = new System.Drawing.Point(892, 12);
+            this.groupBox1.Location = new System.Drawing.Point(927, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(376, 177);
             this.groupBox1.TabIndex = 21;
@@ -299,28 +274,173 @@
             this.groupBox1.Text = "Serial Port";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.settingsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1315, 24);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serialPortToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // serialPortToolStripMenuItem
+            // 
+            this.serialPortToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripSeparator2});
+            this.serialPortToolStripMenuItem.Name = "serialPortToolStripMenuItem";
+            this.serialPortToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.serialPortToolStripMenuItem.Text = "Serial Port";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            // 
+            // btnToggleValve1
+            // 
+            this.btnToggleValve1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnToggleValve1.BackColor = System.Drawing.Color.LightGreen;
+            this.btnToggleValve1.Location = new System.Drawing.Point(549, 391);
+            this.btnToggleValve1.Name = "btnToggleValve1";
+            this.btnToggleValve1.Size = new System.Drawing.Size(75, 23);
+            this.btnToggleValve1.TabIndex = 23;
+            this.btnToggleValve1.Text = "OPEN";
+            this.btnToggleValve1.UseVisualStyleBackColor = false;
+            this.btnToggleValve1.Click += new System.EventHandler(this.btnToggleValve1_Click);
+            // 
+            // btnToggleValve2
+            // 
+            this.btnToggleValve2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnToggleValve2.BackColor = System.Drawing.Color.LightGreen;
+            this.btnToggleValve2.Location = new System.Drawing.Point(485, 491);
+            this.btnToggleValve2.Name = "btnToggleValve2";
+            this.btnToggleValve2.Size = new System.Drawing.Size(75, 23);
+            this.btnToggleValve2.TabIndex = 24;
+            this.btnToggleValve2.Text = "OPEN";
+            this.btnToggleValve2.UseVisualStyleBackColor = false;
+            this.btnToggleValve2.Click += new System.EventHandler(this.btnToggleValve2_Click);
+            // 
+            // progressPressure
+            // 
+            this.progressPressure.Location = new System.Drawing.Point(6, 19);
+            this.progressPressure.Name = "progressPressure";
+            this.progressPressure.Size = new System.Drawing.Size(141, 23);
+            this.progressPressure.TabIndex = 25;
+            // 
+            // labelPressure
+            // 
+            this.labelPressure.AutoSize = true;
+            this.labelPressure.Location = new System.Drawing.Point(153, 29);
+            this.labelPressure.Name = "labelPressure";
+            this.labelPressure.Size = new System.Drawing.Size(40, 13);
+            this.labelPressure.TabIndex = 26;
+            this.labelPressure.Text = "0.0 bar";
+            // 
+            // progressFuel
+            // 
+            this.progressFuel.Location = new System.Drawing.Point(6, 62);
+            this.progressFuel.Name = "progressFuel";
+            this.progressFuel.Size = new System.Drawing.Size(141, 23);
+            this.progressFuel.TabIndex = 27;
+            // 
+            // labelFuel
+            // 
+            this.labelFuel.AutoSize = true;
+            this.labelFuel.Location = new System.Drawing.Point(153, 72);
+            this.labelFuel.Name = "labelFuel";
+            this.labelFuel.Size = new System.Drawing.Size(21, 13);
+            this.labelFuel.TabIndex = 28;
+            this.labelFuel.Text = "0%";
+            // 
+            // TelemetriaGroupBox
+            // 
+            this.TelemetriaGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TelemetriaGroupBox.Controls.Add(this.progressPressure);
+            this.TelemetriaGroupBox.Controls.Add(this.labelFuel);
+            this.TelemetriaGroupBox.Controls.Add(this.labelPressure);
+            this.TelemetriaGroupBox.Controls.Add(this.progressFuel);
+            this.TelemetriaGroupBox.Location = new System.Drawing.Point(12, 607);
+            this.TelemetriaGroupBox.Name = "TelemetriaGroupBox";
+            this.TelemetriaGroupBox.Size = new System.Drawing.Size(195, 198);
+            this.TelemetriaGroupBox.TabIndex = 29;
+            this.TelemetriaGroupBox.TabStop = false;
+            this.TelemetriaGroupBox.Text = "Telemetria";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SterowanieStanowiskiem.Properties.Resources.ArcLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 961);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.TelemetriaGroupBox);
+            this.Controls.Add(this.btnToggleValve2);
+            this.Controls.Add(this.btnToggleValve1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.lblSensorData);
             this.Controls.Add(this.btnCloseValve);
             this.Controls.Add(this.btnOpenValve);
             this.Controls.Add(this.pictureBackground);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Astria Porta";
@@ -328,6 +448,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.TelemetriaGroupBox.ResumeLayout(false);
+            this.TelemetriaGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,14 +466,10 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBackground;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ListView listView1;
         private System.IO.Ports.SerialPort serialPort1;
@@ -359,6 +480,22 @@
         private System.Windows.Forms.TextBox textBoxSend;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serialPortToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Button btnToggleValve1;
+        private System.Windows.Forms.Button btnToggleValve2;
+        private System.Windows.Forms.ProgressBar progressPressure;
+        private System.Windows.Forms.Label labelPressure;
+        private System.Windows.Forms.ProgressBar progressFuel;
+        private System.Windows.Forms.Label labelFuel;
+        private System.Windows.Forms.GroupBox TelemetriaGroupBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
