@@ -396,7 +396,7 @@
             // 
             // pictureBackground
             // 
-            this.pictureBackground.Image = ((System.Drawing.Image)(resources.GetObject("pictureBackground.Image")));
+            this.pictureBackground.Image = global::SterowanieStanowiskiem.Properties.Resources.model8;
             this.pictureBackground.Location = new System.Drawing.Point(6, 22);
             this.pictureBackground.Name = "pictureBackground";
             this.pictureBackground.Size = new System.Drawing.Size(943, 545);
