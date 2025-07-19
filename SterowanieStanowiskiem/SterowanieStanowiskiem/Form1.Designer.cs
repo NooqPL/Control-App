@@ -69,6 +69,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panelFuelContainer = new System.Windows.Forms.Panel();
             this.panelFuelLevel = new System.Windows.Forms.Panel();
+            this.panelValveIndicator8 = new System.Windows.Forms.Panel();
+            this.panelValveIndicator7 = new System.Windows.Forms.Panel();
+            this.panelValveIndicator3 = new System.Windows.Forms.Panel();
+            this.panelValveIndicator2 = new System.Windows.Forms.Panel();
+            this.panelValveIndicator6 = new System.Windows.Forms.Panel();
+            this.panelValveIndicator5 = new System.Windows.Forms.Panel();
+            this.panelValveIndicator4 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.TelemetriaGroupBox.SuspendLayout();
@@ -88,7 +95,7 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(12, 250);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(195, 214);
+            this.checkedListBox1.Size = new System.Drawing.Size(200, 214);
             this.checkedListBox1.TabIndex = 13;
             // 
             // listView1
@@ -307,15 +314,22 @@
             this.TelemetriaGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TelemetriaGroupBox.Controls.Add(this.progressPressure);
             this.TelemetriaGroupBox.Controls.Add(this.labelPressure);
-            this.TelemetriaGroupBox.Location = new System.Drawing.Point(175, 825);
+            this.TelemetriaGroupBox.Location = new System.Drawing.Point(12, 807);
             this.TelemetriaGroupBox.Name = "TelemetriaGroupBox";
-            this.TelemetriaGroupBox.Size = new System.Drawing.Size(195, 198);
+            this.TelemetriaGroupBox.Size = new System.Drawing.Size(200, 198);
             this.TelemetriaGroupBox.TabIndex = 29;
             this.TelemetriaGroupBox.TabStop = false;
             this.TelemetriaGroupBox.Text = "Telemetria";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.panelValveIndicator4);
+            this.groupBox2.Controls.Add(this.panelValveIndicator5);
+            this.groupBox2.Controls.Add(this.panelValveIndicator6);
+            this.groupBox2.Controls.Add(this.panelValveIndicator2);
+            this.groupBox2.Controls.Add(this.panelValveIndicator3);
+            this.groupBox2.Controls.Add(this.panelValveIndicator7);
+            this.groupBox2.Controls.Add(this.panelValveIndicator8);
             this.groupBox2.Controls.Add(this.panelValveIndicator1);
             this.groupBox2.Controls.Add(this.PressureLabel6);
             this.groupBox2.Controls.Add(this.PressureLabel5);
@@ -422,7 +436,7 @@
             this.groupBox3.Controls.Add(this.progressFuel);
             this.groupBox3.Controls.Add(this.btnToggleValve1);
             this.groupBox3.Controls.Add(this.btnToggleValve2);
-            this.groupBox3.Location = new System.Drawing.Point(378, 252);
+            this.groupBox3.Location = new System.Drawing.Point(12, 489);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 286);
             this.groupBox3.TabIndex = 32;
@@ -447,6 +461,69 @@
             this.panelFuelLevel.Name = "panelFuelLevel";
             this.panelFuelLevel.Size = new System.Drawing.Size(33, 180);
             this.panelFuelLevel.TabIndex = 33;
+            // 
+            // panelValveIndicator8
+            // 
+            this.panelValveIndicator8.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator8.Location = new System.Drawing.Point(384, 480);
+            this.panelValveIndicator8.Name = "panelValveIndicator8";
+            this.panelValveIndicator8.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator8.TabIndex = 33;
+            // 
+            // panelValveIndicator7
+            // 
+            this.panelValveIndicator7.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator7.Location = new System.Drawing.Point(612, 412);
+            this.panelValveIndicator7.Name = "panelValveIndicator7";
+            this.panelValveIndicator7.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator7.TabIndex = 33;
+            // 
+            // panelValveIndicator3
+            // 
+            this.panelValveIndicator3.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator3.Location = new System.Drawing.Point(612, 160);
+            this.panelValveIndicator3.Name = "panelValveIndicator3";
+            this.panelValveIndicator3.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator3.TabIndex = 33;
+            // 
+            // panelValveIndicator2
+            // 
+            this.panelValveIndicator2.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator2.Location = new System.Drawing.Point(97, 160);
+            this.panelValveIndicator2.Name = "panelValveIndicator2";
+            this.panelValveIndicator2.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator2.TabIndex = 33;
+            // 
+            // panelValveIndicator6
+            // 
+            this.panelValveIndicator6.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator6.Location = new System.Drawing.Point(97, 412);
+            this.panelValveIndicator6.Name = "panelValveIndicator6";
+            this.panelValveIndicator6.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator6.TabIndex = 33;
+            // 
+            // panelValveIndicator5
+            // 
+            this.panelValveIndicator5.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator5.Location = new System.Drawing.Point(79, 346);
+            this.panelValveIndicator5.Name = "panelValveIndicator5";
+            this.panelValveIndicator5.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator5.TabIndex = 33;
+            // 
+            // panelValveIndicator4
+            // 
+            this.panelValveIndicator4.BackColor = System.Drawing.Color.IndianRed;
+            this.panelValveIndicator4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelValveIndicator4.Location = new System.Drawing.Point(79, 227);
+            this.panelValveIndicator4.Name = "panelValveIndicator4";
+            this.panelValveIndicator4.Size = new System.Drawing.Size(15, 15);
+            this.panelValveIndicator4.TabIndex = 33;
             // 
             // MainWindow
             // 
@@ -525,6 +602,13 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Panel panelFuelContainer;
         private System.Windows.Forms.Panel panelFuelLevel;
+        private System.Windows.Forms.Panel panelValveIndicator4;
+        private System.Windows.Forms.Panel panelValveIndicator5;
+        private System.Windows.Forms.Panel panelValveIndicator6;
+        private System.Windows.Forms.Panel panelValveIndicator2;
+        private System.Windows.Forms.Panel panelValveIndicator3;
+        private System.Windows.Forms.Panel panelValveIndicator7;
+        private System.Windows.Forms.Panel panelValveIndicator8;
     }
 }
 

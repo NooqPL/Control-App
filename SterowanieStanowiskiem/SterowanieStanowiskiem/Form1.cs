@@ -57,28 +57,113 @@ namespace SterowanieStanowiskiem
 
         #region Valve Indicators  
         //======================== INDICATORS =================================================//
-        private bool valveOpen = false;
-        private void ToggleValve()
+        private bool valveOpen1 = false;
+        private bool valveOpen2 = false;
+        private bool valveOpen3 = false;
+        private bool valveOpen4 = false;
+        private bool valveOpen5 = false;
+        private bool valveOpen6 = false;
+        private bool valveOpen7 = false;
+        private bool valveOpen8 = false;
+        private void ToggleValve1()
         {
-            valveOpen = !valveOpen;
+            valveOpen1 = !valveOpen1;
 
-            if (valveOpen)
+            if (valveOpen1)
             {
                 panelValveIndicator1.BackColor = Color.LightGreen;
-                
             }
             else
             {
                 panelValveIndicator1.BackColor = Color.IndianRed;
-                
             }
         }
-        //=====================================================================================//
-        #endregion
+        private void ToggleValve2()
+        {
+            valveOpen2 = !valveOpen2;
 
-        #region Color Buttons
-        //======================= COLOR BUTTONs ================================================//
-        private void btnToggleValve1_Click(object sender, EventArgs e)
+            if (valveOpen2)
+            {
+                panelValveIndicator2.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator2.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve3()
+        {
+            valveOpen3 = !valveOpen3;
+
+            if (valveOpen3)
+            {
+                panelValveIndicator3.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator3.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve4()
+        {
+            valveOpen4 = !valveOpen4;
+
+            if (valveOpen4)
+            {
+                panelValveIndicator4.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator4.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve5()
+        {
+            valveOpen5 = !valveOpen5;
+
+            if (valveOpen5)
+            {
+                panelValveIndicator5.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator5.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve7()
+        {
+            valveOpen7 = !valveOpen7;
+
+            if (valveOpen7)
+            {
+                panelValveIndicator7.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator7.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve8()
+        {
+            valveOpen8 = !valveOpen8;
+
+            if (valveOpen8)
+            {
+                panelValveIndicator8.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator8.BackColor = Color.IndianRed;
+            }
+        }
+    
+
+    //=====================================================================================//
+    #endregion
+
+    #region Color Buttons
+    //======================= COLOR BUTTONs ================================================//
+    private void btnToggleValve1_Click(object sender, EventArgs e)
         {
 
             if (!isValve1Open)
@@ -88,7 +173,7 @@ namespace SterowanieStanowiskiem
                 btnToggleValve1.Text = "OPEN";
                 btnToggleValve1.BackColor = Color.LightGreen;
                 // checkBoxValve1.Checked = true;
-                ToggleValve();
+                ToggleValve1();
             }
             else
             /// d
@@ -99,7 +184,7 @@ namespace SterowanieStanowiskiem
                 btnToggleValve1.Text = "CLOSE";
                 btnToggleValve1.BackColor = Color.IndianRed;
                 // checkBoxValve1.Checked = false;
-                ToggleValve();
+                ToggleValve1();
             }
 
             // LogTelemetry(isValve1Open ? "OPEN1" : "CLOSE1");
@@ -114,6 +199,7 @@ namespace SterowanieStanowiskiem
                 btnToggleValve2.Text = "OPEN";
                 btnToggleValve2.BackColor = Color.LightGreen;
                 //  checkBoxValve2.Checked = true;
+                ToggleValve2();
             }
             else
             {
@@ -122,6 +208,7 @@ namespace SterowanieStanowiskiem
                 btnToggleValve2.Text = "CLOSE";
                 btnToggleValve2.BackColor = Color.IndianRed;
                 //  checkBoxValve2.Checked = false;
+                ToggleValve2();
             }
 
             // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
