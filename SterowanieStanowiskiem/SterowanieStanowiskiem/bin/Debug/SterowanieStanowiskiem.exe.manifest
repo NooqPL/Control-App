@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SterowanieStanowiskiem.exe" size="195472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SterowanieStanowiskiem.exe" size="277904">
       <assemblyIdentity name="SterowanieStanowiskiem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hz0Wym81XA70TKEZFpVRyNyjF7dUsgFFMWFQe76racs=</dsig:DigestValue>
+        <dsig:DigestValue>oLaPyBYRtTupVhNbhCthmcyQUTvCsLt3YSO5C21zhs4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
