@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 
+using PiController;
+using System.Net.NetworkInformation;
+
+
 namespace SterowanieStanowiskiem
 {
     public partial class MainWindow : Form
@@ -51,8 +55,8 @@ namespace SterowanieStanowiskiem
 
         private bool isValve1Open = false;
         private bool isValve2Open = false;
-
-
+        private bool isValve3Open = false;
+        private bool isValve4Open = false;
 
 
         #region Valve Indicators  
@@ -130,6 +134,19 @@ namespace SterowanieStanowiskiem
                 panelValveIndicator5.BackColor = Color.IndianRed;
             }
         }
+        private void ToggleValve6()
+        {
+            valveOpen6 = !valveOpen6;
+
+            if (valveOpen6)
+            {
+                panelValveIndicator6.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator6.BackColor = Color.IndianRed;
+            }
+        }
         private void ToggleValve7()
         {
             valveOpen7 = !valveOpen7;
@@ -161,7 +178,7 @@ namespace SterowanieStanowiskiem
     //=====================================================================================//
     #endregion
 
-    #region Color Buttons
+        #region Color Buttons
     //======================= COLOR BUTTONs ================================================//
     private void btnToggleValve1_Click(object sender, EventArgs e)
         {
@@ -176,8 +193,6 @@ namespace SterowanieStanowiskiem
                 ToggleValve1();
             }
             else
-            /// d
-            /// 
             {
                 port.WriteLine("CLOSE1");
                 isValve1Open = false;
@@ -213,6 +228,52 @@ namespace SterowanieStanowiskiem
 
             // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
         }
+        private void btnToggleValve3_Click(object sender, EventArgs e)
+        {
+            if (!isValve3Open)
+            {
+                port.WriteLine("OPEN3");
+                isValve3Open = true;
+                btnToggleValve3.Text = "OPEN";
+                btnToggleValve3.BackColor = Color.LightGreen;
+                //  checkBoxValve2.Checked = true;
+                ToggleValve3();
+            }
+            else
+            {
+                port.WriteLine("CLOSE3");
+                isValve3Open = false;
+                btnToggleValve3.Text = "CLOSE";
+                btnToggleValve3.BackColor = Color.IndianRed;
+                //  checkBoxValve2.Checked = false;
+                ToggleValve3();
+            }
+
+            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+        }
+        private void btnToggleValve4_Click(object sender, EventArgs e)
+        {
+            if (!isValve4Open)
+            {
+                port.WriteLine("OPEN4");
+                isValve4Open = true;
+                btnToggleValve4.Text = "OPEN";
+                btnToggleValve4.BackColor = Color.LightGreen;
+                //  checkBoxValve4.Checked = true;
+                ToggleValve4();
+            }
+            else
+            {
+                port.WriteLine("CLOSE4");
+                isValve4Open = false;
+                btnToggleValve4.Text = "CLOSE";
+                btnToggleValve4.BackColor = Color.IndianRed;
+                //  checkBoxValve4.Checked = false;
+                ToggleValve4();
+            }
+
+            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+        }
 
         //=====================================================================================//
         #endregion
@@ -230,8 +291,12 @@ namespace SterowanieStanowiskiem
                 {
                     int percent = (int)(pressure * 10);
                     percent = Math.Min(100, Math.Max(0, percent));
-                    progressPressure.Value = percent;
-                    labelPressure.Text = $"{pressure:0.0} bar";
+                    progressPressure1.Value = percent;
+                    progressPressure2.Value = percent;
+                    progressPressure3.Value = percent;
+                    labelPressure1.Text = $"{pressure:0.0} bar";
+                    labelPressure2.Text = $"{pressure:0.0} bar";
+                    labelPressure3.Text = $"{pressure:0.0} bar";
                     PressureLabel1.Text = $"{pressure:0.0} bar";
                     PressureLabel2.Text = $"{pressure:0.0} bar";
                     PressureLabel3.Text = $"{pressure:0.0} bar";
@@ -289,6 +354,32 @@ namespace SterowanieStanowiskiem
 
 
 
+        private bool PingPi()
+        {
+            try
+            {
+                Ping ping = new Ping();
+                PingReply reply = ping.Send("192.168.1.10", 500); // IP twojego Pi
+                return reply.Status == IPStatus.Success;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        private bool CheckInternet()
+        {
+            try
+            {
+                Ping ping = new Ping();
+                PingReply reply = ping.Send("8.8.8.8", 500); // Google DNS
+                return reply.Status == IPStatus.Success;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
 
 
@@ -302,8 +393,7 @@ namespace SterowanieStanowiskiem
 
 
 
-
-
+        //var pi = new PiTcpClient();
 
 
 
@@ -396,7 +486,6 @@ namespace SterowanieStanowiskiem
             comboBoxBaud.Items.AddRange(new object[] { 9600, 19200, 38400, 57600, 115200 });
             comboBoxBaud.SelectedIndex = 0;
         }
-
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string data = serialPort.ReadLine();
@@ -406,16 +495,88 @@ namespace SterowanieStanowiskiem
                 ProcessIncomingData(data);
             }));
         }
-
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
+        private void statusTimer_Tick(object sender, EventArgs e)
+        {
+            // Sprawdzenie Pi
+            if (PingPi())
+            {
+                lblPiStatus.Text = "Status Pi: ✅ Połączono";
+                lblPiStatus.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblPiStatus.Text = "Status Pi: ❌ Brak połączenia";
+                lblPiStatus.ForeColor = Color.Red;
+            }
+
+            // Sprawdzenie internetu
+            if (CheckInternet())
+            {
+                lblInternetStatus.Text = "Internet: 🌐 Dostępny";
+                lblInternetStatus.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblInternetStatus.Text = "Internet: ❌ Niedostępny";
+                lblInternetStatus.ForeColor = Color.Red;
+            }
+        }
+        private void UpdateServoLabel()
+        {
+            lblServoValue.Text = $"Wartość serwa: {trackServoValue.Value}%";
+        }
+        private void SendServoValue(int value)
+        {
+            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
+
+            // Dopisz wiadomość na końcu TextBox
+            port.WriteLine(message);
+        }
+        private void trackServoValue_Scroll_1(object sender, EventArgs e)
+        {
+            UpdateServoLabel();
+
+            if (chkServoEnable.Checked)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue(trackServoValue.Value);
+            }
+        }
+        private void chkServoEnable_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chkServoEnable.Checked)
+            {
+                // Włącz serwo: aktywuj TrackBar
+                trackServoValue.Enabled = true;
+
+                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                if (trackServoValue.Value == 0)
+                    trackServoValue.Value = 0;
+
+                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
+                SendServoValue(trackServoValue.Value);
+            }
+            else
+            {
+                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                trackServoValue.Value = 0;
+                trackServoValue.Enabled = false;
+
+                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
+                SendServoValue(0);
+            }
+
+            UpdateServoLabel();
+        }
+
+        
     }
 }
