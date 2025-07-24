@@ -191,6 +191,16 @@ namespace SterowanieStanowiskiem
                 btnToggleValve1.BackColor = Color.LightGreen;
                 // checkBoxValve1.Checked = true;
                 ToggleValve1();
+
+                // Włącz serwo: aktywuj TrackBar
+                trackServoValue1.Enabled = true;
+
+                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                if (trackServoValue1.Value == 0)
+                    trackServoValue1.Value = 0;
+
+                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
+                SendServoValue1(trackServoValue1.Value);
             }
             else
             {
@@ -200,9 +210,17 @@ namespace SterowanieStanowiskiem
                 btnToggleValve1.BackColor = Color.IndianRed;
                 // checkBoxValve1.Checked = false;
                 ToggleValve1();
-            }
 
-            // LogTelemetry(isValve1Open ? "OPEN1" : "CLOSE1");
+
+
+                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                trackServoValue1.Value = 0;
+                trackServoValue1.Enabled = false;
+
+                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
+                SendServoValue1(0);
+            }
+            UpdateServoLabel1();
         }
 
         private void btnToggleValve2_Click(object sender, EventArgs e)
@@ -215,6 +233,15 @@ namespace SterowanieStanowiskiem
                 btnToggleValve2.BackColor = Color.LightGreen;
                 //  checkBoxValve2.Checked = true;
                 ToggleValve2();
+                // Włącz serwo: aktywuj TrackBar
+                trackServoValue2.Enabled = true;
+
+                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                if (trackServoValue2.Value == 0)
+                    trackServoValue2.Value = 0;
+
+                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
+                SendServoValue2(trackServoValue2.Value);
             }
             else
             {
@@ -224,7 +251,15 @@ namespace SterowanieStanowiskiem
                 btnToggleValve2.BackColor = Color.IndianRed;
                 //  checkBoxValve2.Checked = false;
                 ToggleValve2();
+
+                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                trackServoValue2.Value = 0;
+                trackServoValue2.Enabled = false;
+
+                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
+                SendServoValue2(0);
             }
+            UpdateServoLabel2();
 
             // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
         }
@@ -529,54 +564,61 @@ namespace SterowanieStanowiskiem
                 lblInternetStatus.ForeColor = Color.Red;
             }
         }
-        private void UpdateServoLabel()
+        
+        
+        
+        
+        private void UpdateServoLabel1()
         {
-            lblServoValue.Text = $"Wartość serwa: {trackServoValue.Value}%";
+            lblServoValue1.Text = $"Wartość serwa: {trackServoValue1.Value}%";
         }
-        private void SendServoValue(int value)
+        private void UpdateServoLabel2()
+        {
+            lblServoValue1.Text = $"Wartość serwa: {trackServoValue1.Value}%";
+        }
+
+        private void trackServoValue_Scroll_1(object sender, EventArgs e)
+        {
+            UpdateServoLabel1();
+
+            if (!isValve1Open)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue1(trackServoValue1.Value);
+            }
+        }
+
+        private void trackServoValue2_Scroll(object sender, EventArgs e)
+        {
+            UpdateServoLabel2();
+
+            if (!isValve2Open)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue2(trackServoValue2.Value);
+            }
+        }
+
+
+
+        private void SendServoValue1(int value)
         {
             string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
 
             // Dopisz wiadomość na końcu TextBox
             port.WriteLine(message);
         }
-        private void trackServoValue_Scroll_1(object sender, EventArgs e)
+        private void SendServoValue2(int value)
         {
-            UpdateServoLabel();
+            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
 
-            if (chkServoEnable.Checked)
-            {
-                // Wysyłaj wartość serwa tylko gdy jest włączone
-                SendServoValue(trackServoValue.Value);
-            }
-        }
-        private void chkServoEnable_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (chkServoEnable.Checked)
-            {
-                // Włącz serwo: aktywuj TrackBar
-                trackServoValue.Enabled = true;
-
-                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
-                if (trackServoValue.Value == 0)
-                    trackServoValue.Value = 0;
-
-                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
-                SendServoValue(trackServoValue.Value);
-            }
-            else
-            {
-                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
-                trackServoValue.Value = 0;
-                trackServoValue.Enabled = false;
-
-                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
-                SendServoValue(0);
-            }
-
-            UpdateServoLabel();
+            // Dopisz wiadomość na końcu TextBox
+            port.WriteLine(message);
         }
 
-        
+
+
+
+       
     }
 }
