@@ -42,9 +42,11 @@ namespace SterowanieStanowiskiem
 
             btnToggleValve1.Text = "CLOSE";
             btnToggleValve1.BackColor = Color.IndianRed;
-            
+            trackServoValue1.Enabled = false;
+
             btnToggleValve2.Text = "CLOSE";
             btnToggleValve2.BackColor = Color.IndianRed;
+            trackServoValue2.Enabled = false;
 
             btnToggleValve3.Text = "CLOSE";
             btnToggleValve3.BackColor = Color.IndianRed;
@@ -54,9 +56,11 @@ namespace SterowanieStanowiskiem
 
             btnToggleValve5.Text = "CLOSE";
             btnToggleValve5.BackColor = Color.IndianRed;
+            trackServoValue5.Enabled = false;
 
             btnToggleValve6.Text = "CLOSE";
             btnToggleValve6.BackColor = Color.IndianRed;
+            trackServoValue6.Enabled = false;
 
             btnToggleValve7.Text = "CLOSE";
             btnToggleValve7.BackColor = Color.IndianRed;
@@ -289,6 +293,7 @@ namespace SterowanieStanowiskiem
 
         private void trackServoValue_Scroll_1(object sender, EventArgs e)
         {
+            
             UpdateServoLabel1();
 
             if (isValve1Open)

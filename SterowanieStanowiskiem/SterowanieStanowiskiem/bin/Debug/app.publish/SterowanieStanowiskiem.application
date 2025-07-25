@@ -7,7 +7,7 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SterowanieStanowiskiem.exe.manifest" size="6176">
+    <dependentAssembly dependencyType="install" codebase="Application Files\SterowanieStanowiskiem_1_0_4_6\SterowanieStanowiskiem.exe.manifest" size="6176">
       <assemblyIdentity name="SterowanieStanowiskiem.exe" version="1.0.4.6" publicKeyToken="0000000000000000" language="en-DK" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>

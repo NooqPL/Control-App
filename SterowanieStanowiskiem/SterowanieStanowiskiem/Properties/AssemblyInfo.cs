@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
 [assembly: AssemblyTitle("SterowanieStanowiskiem")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Test Stand Control Program")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ARC")]
 [assembly: AssemblyProduct("SterowanieStanowiskiem")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
