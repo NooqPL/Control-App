@@ -12,13 +12,14 @@ A Windows Forms application for managing and monitoring a **liquid-fuel engine t
 - ✅ **Manual control** of valves (open/close toggle)
 - ✅ **Visual indicators** for valve states (green/red)
 - ✅ **Pressure & fuel level meters** (vertical progress bars)
-- ✅ **Serial communication** with COM port or Raspberry Pi via TCP/MQTT
-- ✅ **Telemetry logging** (timestamped sensor data)
+- ✅ **Serial communication** with COM port
+- ❌ **Communication with Raspberry Pi via TCP/MQTT**
+- ❌ **Telemetry logging** (timestamped sensor data)
 - ✅ **Startup splash screen** with branding
-- ✅ **Two operation modes**:
+- ❌ **Two operation modes**:
   - Test mode (manual)
   - Automatic mode with programmable sequences
-- ✅ **Custom sequence editor** (coming soon)
+- ❌ **Custom sequence editor** 
 - 🔒 Designed with safety and clarity in mind
 
 ---
