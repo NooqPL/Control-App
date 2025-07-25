@@ -56,6 +56,11 @@
             this.labelFuel = new System.Windows.Forms.Label();
             this.TelemetriaGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TankLabel2 = new System.Windows.Forms.Label();
+            this.TankLabel1 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -86,7 +91,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panelFuelContainer = new System.Windows.Forms.Panel();
             this.panelFuelLevel = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblInternetStatus = new System.Windows.Forms.Label();
             this.lblPiStatus = new System.Windows.Forms.Label();
             this.statusTimer = new System.Windows.Forms.Timer(this.components);
@@ -95,6 +99,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblServoValue2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -112,16 +117,35 @@
             this.btnToggleValve4 = new System.Windows.Forms.Button();
             this.btnToggleValve3 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.trackServoValue2 = new System.Windows.Forms.TrackBar();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.TankLabel1 = new System.Windows.Forms.Label();
-            this.TankLabel2 = new System.Windows.Forms.Label();
-            this.trackServoValue2 = new System.Windows.Forms.TrackBar();
-            this.lblServoValue2 = new System.Windows.Forms.Label();
+            this.lblServoValue5 = new System.Windows.Forms.Label();
+            this.labelPressure4 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.progressPressure4 = new System.Windows.Forms.ProgressBar();
+            this.btnToggleValve5 = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.trackServoValue5 = new System.Windows.Forms.TrackBar();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lblServoValue6 = new System.Windows.Forms.Label();
+            this.labelPressure5 = new System.Windows.Forms.Label();
+            this.progressPressure5 = new System.Windows.Forms.ProgressBar();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.btnToggleValve6 = new System.Windows.Forms.Button();
+            this.trackServoValue6 = new System.Windows.Forms.TrackBar();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.labelPressure6 = new System.Windows.Forms.Label();
+            this.progressPressure6 = new System.Windows.Forms.ProgressBar();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.btnToggleValve7 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.btnToggleValve8 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -133,9 +157,12 @@
             this.groupBox6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue2)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue2)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue6)).BeginInit();
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -143,14 +170,14 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(12, 250);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(200, 208);
+            this.checkedListBox1.Size = new System.Drawing.Size(200, 199);
             this.checkedListBox1.TabIndex = 13;
             // 
             // listView1
             // 
             this.listView1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(693, 1112);
+            this.listView1.Location = new System.Drawing.Point(471, 962);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(981, 97);
             this.listView1.TabIndex = 14;
@@ -230,7 +257,7 @@
             this.groupBox1.Controls.Add(this.btnConnectCom);
             this.groupBox1.Controls.Add(this.textBoxSend);
             this.groupBox1.Controls.Add(this.textBoxTerminal);
-            this.groupBox1.Location = new System.Drawing.Point(1981, 27);
+            this.groupBox1.Location = new System.Drawing.Point(1536, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(376, 177);
             this.groupBox1.TabIndex = 21;
@@ -241,7 +268,6 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -249,7 +275,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2369, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 24);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -258,14 +284,14 @@
             // 
             this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // settingsToolStripMenuItem
@@ -274,7 +300,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serialPortToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // serialPortToolStripMenuItem
@@ -284,24 +310,24 @@
             this.toolStripTextBox1,
             this.toolStripSeparator2});
             this.serialPortToolStripMenuItem.Name = "serialPortToolStripMenuItem";
-            this.serialPortToolStripMenuItem.Size = new System.Drawing.Size(193, 34);
+            this.serialPortToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.serialPortToolStripMenuItem.Text = "Serial Port";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(187, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 31);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
             // 
             // btnToggleValve1
             // 
@@ -351,7 +377,7 @@
             // labelFuel
             // 
             this.labelFuel.AutoSize = true;
-            this.labelFuel.Location = new System.Drawing.Point(46, 186);
+            this.labelFuel.Location = new System.Drawing.Point(43, 295);
             this.labelFuel.Name = "labelFuel";
             this.labelFuel.Size = new System.Drawing.Size(21, 13);
             this.labelFuel.TabIndex = 28;
@@ -360,7 +386,7 @@
             // TelemetriaGroupBox
             // 
             this.TelemetriaGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TelemetriaGroupBox.Location = new System.Drawing.Point(12, 807);
+            this.TelemetriaGroupBox.Location = new System.Drawing.Point(-210, 732);
             this.TelemetriaGroupBox.Name = "TelemetriaGroupBox";
             this.TelemetriaGroupBox.Size = new System.Drawing.Size(200, 198);
             this.TelemetriaGroupBox.TabIndex = 29;
@@ -400,12 +426,64 @@
             this.groupBox2.Controls.Add(this.PressureLabel2);
             this.groupBox2.Controls.Add(this.PressureLabel1);
             this.groupBox2.Controls.Add(this.pictureBackground);
-            this.groupBox2.Location = new System.Drawing.Point(1275, 533);
+            this.groupBox2.Location = new System.Drawing.Point(902, 250);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(971, 573);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visual Control";
+            // 
+            // TankLabel2
+            // 
+            this.TankLabel2.AutoSize = true;
+            this.TankLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TankLabel2.Location = new System.Drawing.Point(201, 389);
+            this.TankLabel2.Name = "TankLabel2";
+            this.TankLabel2.Size = new System.Drawing.Size(25, 17);
+            this.TankLabel2.TabIndex = 39;
+            this.TankLabel2.Text = "T2";
+            // 
+            // TankLabel1
+            // 
+            this.TankLabel1.AutoSize = true;
+            this.TankLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TankLabel1.Location = new System.Drawing.Point(201, 170);
+            this.TankLabel1.Name = "TankLabel1";
+            this.TankLabel1.Size = new System.Drawing.Size(25, 17);
+            this.TankLabel1.TabIndex = 39;
+            this.TankLabel1.Text = "T1";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label23.Location = new System.Drawing.Point(344, 430);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(25, 17);
+            this.label23.TabIndex = 49;
+            this.label23.Text = "P2";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label22.Location = new System.Drawing.Point(532, 426);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(25, 17);
+            this.label22.TabIndex = 48;
+            this.label22.Text = "P3";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(438, 498);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(25, 17);
+            this.label21.TabIndex = 47;
+            this.label21.Text = "P1";
             // 
             // label16
             // 
@@ -414,7 +492,7 @@
             this.label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label16.Location = new System.Drawing.Point(532, 142);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(36, 25);
+            this.label16.Size = new System.Drawing.Size(25, 17);
             this.label16.TabIndex = 46;
             this.label16.Text = "P3";
             // 
@@ -425,7 +503,7 @@
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label15.Location = new System.Drawing.Point(344, 142);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 25);
+            this.label15.Size = new System.Drawing.Size(25, 17);
             this.label15.TabIndex = 45;
             this.label15.Text = "P2";
             // 
@@ -435,7 +513,7 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(453, 66);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 25);
+            this.label13.Size = new System.Drawing.Size(25, 17);
             this.label13.TabIndex = 44;
             this.label13.Text = "P1";
             // 
@@ -445,7 +523,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(608, 430);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 25);
+            this.label8.Size = new System.Drawing.Size(25, 17);
             this.label8.TabIndex = 43;
             this.label8.Text = "V3";
             // 
@@ -455,7 +533,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(379, 498);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 25);
+            this.label7.Size = new System.Drawing.Size(25, 17);
             this.label7.TabIndex = 42;
             this.label7.Text = "V1";
             // 
@@ -465,7 +543,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(94, 426);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 25);
+            this.label6.Size = new System.Drawing.Size(25, 17);
             this.label6.TabIndex = 41;
             this.label6.Text = "V2";
             // 
@@ -475,7 +553,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(95, 340);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 25);
+            this.label5.Size = new System.Drawing.Size(25, 17);
             this.label5.TabIndex = 40;
             this.label5.Text = "V4";
             // 
@@ -485,7 +563,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(95, 222);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 25);
+            this.label4.Size = new System.Drawing.Size(25, 17);
             this.label4.TabIndex = 39;
             this.label4.Text = "V4";
             // 
@@ -495,7 +573,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(608, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 25);
+            this.label3.Size = new System.Drawing.Size(25, 17);
             this.label3.TabIndex = 39;
             this.label3.Text = "V3";
             // 
@@ -505,7 +583,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(94, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 25);
+            this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 36;
             this.label2.Text = "V2";
             // 
@@ -515,7 +593,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(379, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 25);
+            this.label1.Size = new System.Drawing.Size(25, 17);
             this.label1.TabIndex = 35;
             this.label1.Text = "V1";
             // 
@@ -668,8 +746,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.panelFuelContainer);
-            this.groupBox3.Controls.Add(this.labelFuel);
             this.groupBox3.Controls.Add(this.progressFuel);
             this.groupBox3.Location = new System.Drawing.Point(12, 489);
             this.groupBox3.Name = "groupBox3";
@@ -683,9 +759,9 @@
             this.panelFuelContainer.BackColor = System.Drawing.Color.LightGray;
             this.panelFuelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFuelContainer.Controls.Add(this.panelFuelLevel);
-            this.panelFuelContainer.Location = new System.Drawing.Point(6, 19);
+            this.panelFuelContainer.Location = new System.Drawing.Point(7, 171);
             this.panelFuelContainer.Name = "panelFuelContainer";
-            this.panelFuelContainer.Size = new System.Drawing.Size(35, 181);
+            this.panelFuelContainer.Size = new System.Drawing.Size(35, 138);
             this.panelFuelContainer.TabIndex = 25;
             // 
             // panelFuelLevel
@@ -694,18 +770,8 @@
             this.panelFuelLevel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFuelLevel.Location = new System.Drawing.Point(0, -1);
             this.panelFuelLevel.Name = "panelFuelLevel";
-            this.panelFuelLevel.Size = new System.Drawing.Size(33, 180);
+            this.panelFuelLevel.Size = new System.Drawing.Size(33, 137);
             this.panelFuelLevel.TabIndex = 33;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Location = new System.Drawing.Point(1981, 244);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(376, 124);
-            this.groupBox4.TabIndex = 33;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Connection";
             // 
             // lblInternetStatus
             // 
@@ -713,7 +779,7 @@
             this.lblInternetStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInternetStatus.Location = new System.Drawing.Point(707, 1160);
             this.lblInternetStatus.Name = "lblInternetStatus";
-            this.lblInternetStatus.Size = new System.Drawing.Size(99, 25);
+            this.lblInternetStatus.Size = new System.Drawing.Size(72, 17);
             this.lblInternetStatus.TabIndex = 1;
             this.lblInternetStatus.Text = "Internet: ?";
             // 
@@ -723,7 +789,7 @@
             this.lblPiStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPiStatus.Location = new System.Drawing.Point(707, 1123);
             this.lblPiStatus.Name = "lblPiStatus";
-            this.lblPiStatus.Size = new System.Drawing.Size(112, 25);
+            this.lblPiStatus.Size = new System.Drawing.Size(80, 17);
             this.lblPiStatus.TabIndex = 0;
             this.lblPiStatus.Text = "Status Pi: ?";
             // 
@@ -738,7 +804,7 @@
             this.trackServoValue1.Location = new System.Drawing.Point(141, 3);
             this.trackServoValue1.Maximum = 100;
             this.trackServoValue1.Name = "trackServoValue1";
-            this.trackServoValue1.Size = new System.Drawing.Size(141, 69);
+            this.trackServoValue1.Size = new System.Drawing.Size(141, 45);
             this.trackServoValue1.TabIndex = 35;
             this.trackServoValue1.Scroll += new System.EventHandler(this.trackServoValue_Scroll_1);
             // 
@@ -756,7 +822,7 @@
             this.groupBox6.Controls.Add(this.panel1);
             this.groupBox6.Location = new System.Drawing.Point(271, 250);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(297, 761);
+            this.groupBox6.Size = new System.Drawing.Size(297, 533);
             this.groupBox6.TabIndex = 37;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "RED";
@@ -767,13 +833,15 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 741);
+            this.panel1.Size = new System.Drawing.Size(297, 513);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.labelFuel);
+            this.panel2.Controls.Add(this.panelFuelContainer);
             this.panel2.Controls.Add(this.lblServoValue2);
             this.panel2.Controls.Add(this.lblServoValue1);
             this.panel2.Controls.Add(this.panel8);
@@ -801,8 +869,17 @@
             this.panel2.Controls.Add(this.trackServoValue2);
             this.panel2.Location = new System.Drawing.Point(5, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 731);
+            this.panel2.Size = new System.Drawing.Size(287, 500);
             this.panel2.TabIndex = 0;
+            // 
+            // lblServoValue2
+            // 
+            this.lblServoValue2.AutoSize = true;
+            this.lblServoValue2.Location = new System.Drawing.Point(49, 121);
+            this.lblServoValue2.Name = "lblServoValue2";
+            this.lblServoValue2.Size = new System.Drawing.Size(62, 13);
+            this.lblServoValue2.TabIndex = 55;
+            this.lblServoValue2.Text = "ServoValue";
             // 
             // panel8
             // 
@@ -853,7 +930,7 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(4, 360);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(36, 25);
+            this.label20.Size = new System.Drawing.Size(25, 17);
             this.label20.TabIndex = 54;
             this.label20.Text = "P3";
             // 
@@ -879,7 +956,7 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(4, 137);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 25);
+            this.label18.Size = new System.Drawing.Size(25, 17);
             this.label18.TabIndex = 51;
             this.label18.Text = "P2";
             // 
@@ -898,7 +975,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 25);
+            this.label9.Size = new System.Drawing.Size(25, 17);
             this.label9.TabIndex = 44;
             this.label9.Text = "V1";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -909,7 +986,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(3, 396);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 25);
+            this.label12.Size = new System.Drawing.Size(25, 17);
             this.label12.TabIndex = 46;
             this.label12.Text = "V4";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -920,7 +997,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 325);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 25);
+            this.label11.Size = new System.Drawing.Size(25, 17);
             this.label11.TabIndex = 48;
             this.label11.Text = "V3";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -931,7 +1008,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(4, 49);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 25);
+            this.label14.Size = new System.Drawing.Size(25, 17);
             this.label14.TabIndex = 45;
             this.label14.Text = "P1";
             // 
@@ -963,17 +1040,26 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(4, 89);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 25);
+            this.label10.Size = new System.Drawing.Size(25, 17);
             this.label10.TabIndex = 45;
             this.label10.Text = "V2";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // trackServoValue2
+            // 
+            this.trackServoValue2.Location = new System.Drawing.Point(141, 91);
+            this.trackServoValue2.Maximum = 100;
+            this.trackServoValue2.Name = "trackServoValue2";
+            this.trackServoValue2.Size = new System.Drawing.Size(141, 45);
+            this.trackServoValue2.TabIndex = 36;
+            this.trackServoValue2.Scroll += new System.EventHandler(this.trackServoValue2_Scroll);
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.panel3);
             this.groupBox7.Location = new System.Drawing.Point(599, 250);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(297, 761);
+            this.groupBox7.Size = new System.Drawing.Size(297, 533);
             this.groupBox7.TabIndex = 38;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "BLUE";
@@ -984,98 +1070,290 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(0, 20);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(297, 741);
+            this.panel3.Size = new System.Drawing.Size(297, 513);
             this.panel3.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel11);
+            this.panel4.Controls.Add(this.labelPressure6);
+            this.panel4.Controls.Add(this.panel12);
+            this.panel4.Controls.Add(this.label33);
+            this.panel4.Controls.Add(this.panel10);
+            this.panel4.Controls.Add(this.btnToggleValve8);
+            this.panel4.Controls.Add(this.progressPressure6);
+            this.panel4.Controls.Add(this.label31);
+            this.panel4.Controls.Add(this.lblServoValue6);
+            this.panel4.Controls.Add(this.label32);
+            this.panel4.Controls.Add(this.panel9);
+            this.panel4.Controls.Add(this.btnToggleValve7);
+            this.panel4.Controls.Add(this.labelPressure5);
+            this.panel4.Controls.Add(this.lblServoValue5);
+            this.panel4.Controls.Add(this.progressPressure5);
+            this.panel4.Controls.Add(this.btnToggleValve5);
+            this.panel4.Controls.Add(this.label28);
+            this.panel4.Controls.Add(this.labelPressure4);
+            this.panel4.Controls.Add(this.label29);
+            this.panel4.Controls.Add(this.trackServoValue5);
+            this.panel4.Controls.Add(this.btnToggleValve6);
+            this.panel4.Controls.Add(this.label24);
+            this.panel4.Controls.Add(this.trackServoValue6);
+            this.panel4.Controls.Add(this.label25);
+            this.panel4.Controls.Add(this.progressPressure4);
             this.panel4.Location = new System.Drawing.Point(5, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(287, 731);
+            this.panel4.Size = new System.Drawing.Size(287, 500);
             this.panel4.TabIndex = 0;
             // 
-            // label21
+            // lblServoValue5
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(438, 498);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(36, 25);
-            this.label21.TabIndex = 47;
-            this.label21.Text = "P1";
+            this.lblServoValue5.AutoSize = true;
+            this.lblServoValue5.Location = new System.Drawing.Point(49, 33);
+            this.lblServoValue5.Name = "lblServoValue5";
+            this.lblServoValue5.Size = new System.Drawing.Size(62, 13);
+            this.lblServoValue5.TabIndex = 60;
+            this.lblServoValue5.Text = "ServoValue";
             // 
-            // label22
+            // labelPressure4
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label22.Location = new System.Drawing.Point(532, 426);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(36, 25);
-            this.label22.TabIndex = 48;
-            this.label22.Text = "P3";
+            this.labelPressure4.AutoSize = true;
+            this.labelPressure4.Location = new System.Drawing.Point(190, 58);
+            this.labelPressure4.Name = "labelPressure4";
+            this.labelPressure4.Size = new System.Drawing.Size(40, 13);
+            this.labelPressure4.TabIndex = 58;
+            this.labelPressure4.Text = "0.0 bar";
             // 
-            // label23
+            // label24
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label23.Location = new System.Drawing.Point(344, 430);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(36, 25);
-            this.label23.TabIndex = 49;
-            this.label23.Text = "P2";
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 5);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(25, 17);
+            this.label24.TabIndex = 61;
+            this.label24.Text = "V1";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TankLabel1
+            // progressPressure4
             // 
-            this.TankLabel1.AutoSize = true;
-            this.TankLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TankLabel1.Location = new System.Drawing.Point(201, 170);
-            this.TankLabel1.Name = "TankLabel1";
-            this.TankLabel1.Size = new System.Drawing.Size(36, 25);
-            this.TankLabel1.TabIndex = 39;
-            this.TankLabel1.Text = "T1";
+            this.progressPressure4.Location = new System.Drawing.Point(46, 49);
+            this.progressPressure4.Name = "progressPressure4";
+            this.progressPressure4.Size = new System.Drawing.Size(141, 23);
+            this.progressPressure4.TabIndex = 57;
             // 
-            // TankLabel2
+            // btnToggleValve5
             // 
-            this.TankLabel2.AutoSize = true;
-            this.TankLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TankLabel2.Location = new System.Drawing.Point(201, 389);
-            this.TankLabel2.Name = "TankLabel2";
-            this.TankLabel2.Size = new System.Drawing.Size(36, 25);
-            this.TankLabel2.TabIndex = 39;
-            this.TankLabel2.Text = "T2";
+            this.btnToggleValve5.BackColor = System.Drawing.Color.IndianRed;
+            this.btnToggleValve5.Location = new System.Drawing.Point(46, 7);
+            this.btnToggleValve5.Name = "btnToggleValve5";
+            this.btnToggleValve5.Size = new System.Drawing.Size(75, 23);
+            this.btnToggleValve5.TabIndex = 56;
+            this.btnToggleValve5.Text = "CLOSE";
+            this.btnToggleValve5.UseVisualStyleBackColor = false;
+            this.btnToggleValve5.Click += new System.EventHandler(this.btnToggleValve5_Click);
             // 
-            // trackServoValue2
+            // label25
             // 
-            this.trackServoValue2.Location = new System.Drawing.Point(141, 91);
-            this.trackServoValue2.Maximum = 100;
-            this.trackServoValue2.Name = "trackServoValue2";
-            this.trackServoValue2.Size = new System.Drawing.Size(141, 69);
-            this.trackServoValue2.TabIndex = 36;
-            this.trackServoValue2.Scroll += new System.EventHandler(this.trackServoValue2_Scroll);
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(4, 49);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(25, 17);
+            this.label25.TabIndex = 62;
+            this.label25.Text = "P1";
             // 
-            // lblServoValue2
+            // trackServoValue5
             // 
-            this.lblServoValue2.AutoSize = true;
-            this.lblServoValue2.Location = new System.Drawing.Point(49, 121);
-            this.lblServoValue2.Name = "lblServoValue2";
-            this.lblServoValue2.Size = new System.Drawing.Size(62, 13);
-            this.lblServoValue2.TabIndex = 55;
-            this.lblServoValue2.Text = "ServoValue";
+            this.trackServoValue5.Location = new System.Drawing.Point(141, 3);
+            this.trackServoValue5.Maximum = 100;
+            this.trackServoValue5.Name = "trackServoValue5";
+            this.trackServoValue5.Size = new System.Drawing.Size(141, 45);
+            this.trackServoValue5.TabIndex = 59;
+            this.trackServoValue5.Scroll += new System.EventHandler(this.trackServoValue5_Scroll);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Location = new System.Drawing.Point(0, 80);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(286, 5);
+            this.panel9.TabIndex = 40;
+            // 
+            // lblServoValue6
+            // 
+            this.lblServoValue6.AutoSize = true;
+            this.lblServoValue6.Location = new System.Drawing.Point(49, 119);
+            this.lblServoValue6.Name = "lblServoValue6";
+            this.lblServoValue6.Size = new System.Drawing.Size(62, 13);
+            this.lblServoValue6.TabIndex = 62;
+            this.lblServoValue6.Text = "ServoValue";
+            // 
+            // labelPressure5
+            // 
+            this.labelPressure5.AutoSize = true;
+            this.labelPressure5.Location = new System.Drawing.Point(190, 144);
+            this.labelPressure5.Name = "labelPressure5";
+            this.labelPressure5.Size = new System.Drawing.Size(40, 13);
+            this.labelPressure5.TabIndex = 60;
+            this.labelPressure5.Text = "0.0 bar";
+            // 
+            // progressPressure5
+            // 
+            this.progressPressure5.Location = new System.Drawing.Point(46, 135);
+            this.progressPressure5.Name = "progressPressure5";
+            this.progressPressure5.Size = new System.Drawing.Size(141, 23);
+            this.progressPressure5.TabIndex = 59;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(4, 135);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(25, 17);
+            this.label28.TabIndex = 61;
+            this.label28.Text = "P2";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(4, 87);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(25, 17);
+            this.label29.TabIndex = 58;
+            this.label29.Text = "V2";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnToggleValve6
+            // 
+            this.btnToggleValve6.BackColor = System.Drawing.Color.IndianRed;
+            this.btnToggleValve6.Location = new System.Drawing.Point(46, 89);
+            this.btnToggleValve6.Name = "btnToggleValve6";
+            this.btnToggleValve6.Size = new System.Drawing.Size(75, 23);
+            this.btnToggleValve6.TabIndex = 56;
+            this.btnToggleValve6.Text = "CLOSE";
+            this.btnToggleValve6.UseVisualStyleBackColor = false;
+            this.btnToggleValve6.Click += new System.EventHandler(this.btnToggleValve6_Click);
+            // 
+            // trackServoValue6
+            // 
+            this.trackServoValue6.Location = new System.Drawing.Point(141, 89);
+            this.trackServoValue6.Maximum = 100;
+            this.trackServoValue6.Name = "trackServoValue6";
+            this.trackServoValue6.Size = new System.Drawing.Size(141, 45);
+            this.trackServoValue6.TabIndex = 57;
+            this.trackServoValue6.Scroll += new System.EventHandler(this.trackServoValue6_Scroll);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Location = new System.Drawing.Point(0, 315);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(286, 5);
+            this.panel10.TabIndex = 41;
+            // 
+            // labelPressure6
+            // 
+            this.labelPressure6.AutoSize = true;
+            this.labelPressure6.Location = new System.Drawing.Point(196, 369);
+            this.labelPressure6.Name = "labelPressure6";
+            this.labelPressure6.Size = new System.Drawing.Size(40, 13);
+            this.labelPressure6.TabIndex = 59;
+            this.labelPressure6.Text = "0.0 bar";
+            // 
+            // progressPressure6
+            // 
+            this.progressPressure6.Location = new System.Drawing.Point(52, 360);
+            this.progressPressure6.Name = "progressPressure6";
+            this.progressPressure6.Size = new System.Drawing.Size(141, 23);
+            this.progressPressure6.TabIndex = 58;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(10, 360);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(25, 17);
+            this.label31.TabIndex = 60;
+            this.label31.Text = "P3";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(9, 325);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(25, 17);
+            this.label32.TabIndex = 57;
+            this.label32.Text = "V3";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnToggleValve7
+            // 
+            this.btnToggleValve7.BackColor = System.Drawing.Color.IndianRed;
+            this.btnToggleValve7.Location = new System.Drawing.Point(52, 329);
+            this.btnToggleValve7.Name = "btnToggleValve7";
+            this.btnToggleValve7.Size = new System.Drawing.Size(75, 23);
+            this.btnToggleValve7.TabIndex = 56;
+            this.btnToggleValve7.Text = "CLOSE";
+            this.btnToggleValve7.UseVisualStyleBackColor = false;
+            this.btnToggleValve7.Click += new System.EventHandler(this.btnToggleValve7_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Location = new System.Drawing.Point(0, 429);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(286, 5);
+            this.panel11.TabIndex = 49;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Location = new System.Drawing.Point(0, 389);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(286, 5);
+            this.panel12.TabIndex = 48;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(9, 396);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(25, 17);
+            this.label33.TabIndex = 50;
+            this.label33.Text = "V4";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnToggleValve8
+            // 
+            this.btnToggleValve8.BackColor = System.Drawing.Color.IndianRed;
+            this.btnToggleValve8.Location = new System.Drawing.Point(52, 400);
+            this.btnToggleValve8.Name = "btnToggleValve8";
+            this.btnToggleValve8.Size = new System.Drawing.Size(75, 23);
+            this.btnToggleValve8.TabIndex = 51;
+            this.btnToggleValve8.Text = "CLOSE";
+            this.btnToggleValve8.UseVisualStyleBackColor = false;
+            this.btnToggleValve8.Click += new System.EventHandler(this.btnToggleValve8_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2369, 1211);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.lblInternetStatus);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.lblPiStatus);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TelemetriaGroupBox);
@@ -1099,16 +1377,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.panelFuelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue2)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue2)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackServoValue6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1160,7 +1441,6 @@
         private System.Windows.Forms.Panel panelValveIndicator3;
         private System.Windows.Forms.Panel panelValveIndicator7;
         private System.Windows.Forms.Panel panelValveIndicator8;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lblInternetStatus;
         private System.Windows.Forms.Label lblPiStatus;
         private System.Windows.Forms.Timer statusTimer;
@@ -1207,6 +1487,31 @@
         private System.Windows.Forms.Label TankLabel1;
         private System.Windows.Forms.TrackBar trackServoValue2;
         private System.Windows.Forms.Label lblServoValue2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label labelPressure6;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btnToggleValve8;
+        private System.Windows.Forms.ProgressBar progressPressure6;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lblServoValue6;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btnToggleValve7;
+        private System.Windows.Forms.Label labelPressure5;
+        private System.Windows.Forms.Label lblServoValue5;
+        private System.Windows.Forms.ProgressBar progressPressure5;
+        private System.Windows.Forms.Button btnToggleValve5;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label labelPressure4;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TrackBar trackServoValue5;
+        private System.Windows.Forms.Button btnToggleValve6;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TrackBar trackServoValue6;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ProgressBar progressPressure4;
     }
 }
 

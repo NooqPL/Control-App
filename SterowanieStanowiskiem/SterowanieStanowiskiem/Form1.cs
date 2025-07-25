@@ -43,10 +43,27 @@ namespace SterowanieStanowiskiem
             btnToggleValve1.Text = "CLOSE";
             btnToggleValve1.BackColor = Color.IndianRed;
             
-
             btnToggleValve2.Text = "CLOSE";
             btnToggleValve2.BackColor = Color.IndianRed;
-            
+
+            btnToggleValve3.Text = "CLOSE";
+            btnToggleValve3.BackColor = Color.IndianRed;
+
+            btnToggleValve4.Text = "CLOSE";
+            btnToggleValve4.BackColor = Color.IndianRed;
+
+            btnToggleValve5.Text = "CLOSE";
+            btnToggleValve5.BackColor = Color.IndianRed;
+
+            btnToggleValve6.Text = "CLOSE";
+            btnToggleValve6.BackColor = Color.IndianRed;
+
+            btnToggleValve7.Text = "CLOSE";
+            btnToggleValve7.BackColor = Color.IndianRed;
+
+            btnToggleValve8.Text = "CLOSE";
+            btnToggleValve8.BackColor = Color.IndianRed;
+
             //================================================================================//
 
 
@@ -58,17 +75,19 @@ namespace SterowanieStanowiskiem
         private bool isValve3Open = false;
         private bool isValve4Open = false;
 
+        private bool isValve5Open = false;
+        private bool isValve6Open = false;
+        private bool isValve7Open = false;
+        private bool isValve8Open = false;
 
-        #region Valve Indicators  
-        //======================== INDICATORS =================================================//
+
+
+        //============================== RED =============================================//
+        #region Valve Indicators RED
         private bool valveOpen1 = false;
         private bool valveOpen2 = false;
         private bool valveOpen3 = false;
         private bool valveOpen4 = false;
-        private bool valveOpen5 = false;
-        private bool valveOpen6 = false;
-        private bool valveOpen7 = false;
-        private bool valveOpen8 = false;
         private void ToggleValve1()
         {
             valveOpen1 = !valveOpen1;
@@ -121,64 +140,9 @@ namespace SterowanieStanowiskiem
                 panelValveIndicator4.BackColor = Color.IndianRed;
             }
         }
-        private void ToggleValve5()
-        {
-            valveOpen5 = !valveOpen5;
-
-            if (valveOpen5)
-            {
-                panelValveIndicator5.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator5.BackColor = Color.IndianRed;
-            }
-        }
-        private void ToggleValve6()
-        {
-            valveOpen6 = !valveOpen6;
-
-            if (valveOpen6)
-            {
-                panelValveIndicator6.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator6.BackColor = Color.IndianRed;
-            }
-        }
-        private void ToggleValve7()
-        {
-            valveOpen7 = !valveOpen7;
-
-            if (valveOpen7)
-            {
-                panelValveIndicator7.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator7.BackColor = Color.IndianRed;
-            }
-        }
-        private void ToggleValve8()
-        {
-            valveOpen8 = !valveOpen8;
-
-            if (valveOpen8)
-            {
-                panelValveIndicator8.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator8.BackColor = Color.IndianRed;
-            }
-        }
-    
-
-    //=====================================================================================//
-    #endregion
-
-        #region Color Buttons
+        #endregion
+        
+        #region Color Buttons RED
     //======================= COLOR BUTTONs ================================================//
     private void btnToggleValve1_Click(object sender, EventArgs e)
         {
@@ -313,6 +277,58 @@ namespace SterowanieStanowiskiem
         //=====================================================================================//
         #endregion
 
+        #region Slinders Servo Output RED
+        private void UpdateServoLabel1()
+        {
+            lblServoValue1.Text = $"Wartość serwa: {trackServoValue1.Value}%";
+        }
+        private void UpdateServoLabel2()
+        {
+            lblServoValue2.Text = $"Wartość serwa: {trackServoValue2.Value}%";
+        }
+
+        private void trackServoValue_Scroll_1(object sender, EventArgs e)
+        {
+            UpdateServoLabel1();
+
+            if (isValve1Open)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue1(trackServoValue1.Value);
+            }
+        }
+
+        private void trackServoValue2_Scroll(object sender, EventArgs e)
+        {
+            UpdateServoLabel2();
+
+            if (isValve2Open)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue2(trackServoValue2.Value);
+            }
+        }
+
+
+
+        private void SendServoValue1(int value)
+        {
+            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
+
+            // Dopisz wiadomość na końcu TextBox
+            port.WriteLine(message);
+        }
+        private void SendServoValue2(int value)
+        {
+            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
+
+            // Dopisz wiadomość na końcu TextBox
+            port.WriteLine(message);
+        }
+
+        #endregion
+        //================================================================================//
+
         #region DATA SETUP / VISUAL
         //=================== DATA PROCESSING =================================================//
         private void ProcessIncomingData(string data)
@@ -329,12 +345,15 @@ namespace SterowanieStanowiskiem
                     progressPressure1.Value = percent;
                     progressPressure2.Value = percent;
                     progressPressure3.Value = percent;
+
                     labelPressure1.Text = $"{pressure:0.0} bar";
                     labelPressure2.Text = $"{pressure:0.0} bar";
                     labelPressure3.Text = $"{pressure:0.0} bar";
+
                     PressureLabel1.Text = $"{pressure:0.0} bar";
                     PressureLabel2.Text = $"{pressure:0.0} bar";
                     PressureLabel3.Text = $"{pressure:0.0} bar";
+
                     PressureLabel4.Text = $"{pressure:0.0} bar";
                     PressureLabel5.Text = $"{pressure:0.0} bar";
                     PressureLabel6.Text = $"{pressure:0.0} bar";
@@ -361,8 +380,6 @@ namespace SterowanieStanowiskiem
 
         #endregion
 
-
-
         #region Progress Bars
         //================ Progress Bars ======================================================//
         private void SetFuelLevel(int percent)
@@ -387,8 +404,257 @@ namespace SterowanieStanowiskiem
         //=====================================================================================//
         #endregion
 
+        //============================== BLUE ============================================//
+        #region Valve Indicators BLUE
+        
+        private bool valveOpen5 = false;
+        private bool valveOpen6 = false;
+        private bool valveOpen7 = false;
+        private bool valveOpen8 = false;
+        
+        private void ToggleValve5()
+        {
+            valveOpen5 = !valveOpen5;
+
+            if (valveOpen5)
+            {
+                panelValveIndicator5.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator5.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve6()
+        {
+            valveOpen6 = !valveOpen6;
+
+            if (valveOpen6)
+            {
+                panelValveIndicator6.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator6.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve7()
+        {
+            valveOpen7 = !valveOpen7;
+
+            if (valveOpen7)
+            {
+                panelValveIndicator7.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator7.BackColor = Color.IndianRed;
+            }
+        }
+        private void ToggleValve8()
+        {
+            valveOpen8 = !valveOpen8;
+
+            if (valveOpen8)
+            {
+                panelValveIndicator8.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                panelValveIndicator8.BackColor = Color.IndianRed;
+            }
+        }
 
 
+        //=====================================================================================//
+        #endregion
+
+        #region Color Buttons BLUE
+        //======================= COLOR BUTTONs ================================================//
+        private void btnToggleValve5_Click(object sender, EventArgs e)
+        {
+
+            if (!isValve5Open)
+            {
+                port.WriteLine("OPEN5");
+                isValve5Open = true;
+                btnToggleValve5.Text = "OPEN";
+                btnToggleValve5.BackColor = Color.LightGreen;
+                // checkBoxValve5.Checked = true;
+                ToggleValve8();
+
+                // Włącz serwo: aktywuj TrackBar
+                trackServoValue5.Enabled = true;
+
+                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                if (trackServoValue5.Value == 0)
+                    trackServoValue5.Value = 0;
+
+                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
+                SendServoValue5(trackServoValue5.Value);
+            }
+            else
+            {
+                port.WriteLine("CLOSE5");
+                isValve5Open = false;
+                btnToggleValve5.Text = "CLOSE";
+                btnToggleValve5.BackColor = Color.IndianRed;
+                // checkBoxValve5.Checked = false;
+                ToggleValve8();
+
+
+
+                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                trackServoValue5.Value = 0;
+                trackServoValue5.Enabled = false;
+
+                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
+                SendServoValue5(0);
+            }
+            UpdateServoLabel5();
+        }
+
+        private void btnToggleValve6_Click(object sender, EventArgs e)
+        {
+            if (!isValve6Open)
+            {
+                port.WriteLine("OPEN6");
+                isValve6Open = true;
+                btnToggleValve6.Text = "OPEN";
+                btnToggleValve6.BackColor = Color.LightGreen;
+                //  checkBoxValve6.Checked = true;
+                ToggleValve6();
+                // Włącz serwo: aktywuj TrackBar
+                trackServoValue6.Enabled = true;
+
+                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                if (trackServoValue6.Value == 0)
+                    trackServoValue6.Value = 0;
+
+                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
+                SendServoValue6(trackServoValue6.Value);
+            }
+            else
+            {
+                port.WriteLine("CLOSE6");
+                isValve6Open = false;
+                btnToggleValve6.Text = "CLOSE";
+                btnToggleValve6.BackColor = Color.IndianRed;
+                //  checkBoxValve6.Checked = false;
+                ToggleValve6();
+
+                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                trackServoValue6.Value = 0;
+                trackServoValue6.Enabled = false;
+
+                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
+                SendServoValue6(0);
+            }
+            UpdateServoLabel6();
+
+            // LogTelemetry(isValve6Open ? "OPEN6" : "CLOSE6");
+        }
+        private void btnToggleValve7_Click(object sender, EventArgs e)
+        {
+            if (!isValve7Open)
+            {
+                port.WriteLine("OPEN7");
+                isValve7Open = true;
+                btnToggleValve7.Text = "OPEN";
+                btnToggleValve7.BackColor = Color.LightGreen;
+                //  checkBoxValve2.Checked = true;
+                ToggleValve7();
+            }
+            else
+            {
+                port.WriteLine("CLOSE7");
+                isValve7Open = false;
+                btnToggleValve7.Text = "CLOSE";
+                btnToggleValve7.BackColor = Color.IndianRed;
+                //  checkBoxValve2.Checked = false;
+                ToggleValve7();
+            }
+
+            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+        }
+        private void btnToggleValve8_Click(object sender, EventArgs e)
+        {
+            if (!isValve8Open)
+            {
+                port.WriteLine("OPEN8");
+                isValve8Open = true;
+                btnToggleValve8.Text = "OPEN";
+                btnToggleValve8.BackColor = Color.LightGreen;
+                //  checkBoxValve8.Checked = true;
+                ToggleValve5();
+            }
+            else
+            {
+                port.WriteLine("CLOSE8");
+                isValve8Open = false;
+                btnToggleValve8.Text = "CLOSE";
+                btnToggleValve8.BackColor = Color.IndianRed;
+                //  checkBoxValve8.Checked = false;
+                ToggleValve5();
+            }
+
+            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+        }
+
+        //=====================================================================================//
+        #endregion
+
+        #region Slinders Servo Output RED
+        private void UpdateServoLabel5()
+        {
+            lblServoValue5.Text = $"Wartość serwa: {trackServoValue5.Value}%";
+        }
+        private void UpdateServoLabel6()
+        {
+            lblServoValue6.Text = $"Wartość serwa: {trackServoValue6.Value}%";
+        }
+
+        private void trackServoValue5_Scroll(object sender, EventArgs e)
+        {
+            UpdateServoLabel5();
+
+            if (isValve5Open)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue5(trackServoValue5.Value);
+            }
+        }
+
+        private void trackServoValue6_Scroll(object sender, EventArgs e)
+        {
+            UpdateServoLabel6();
+
+            if (isValve6Open)
+            {
+                // Wysyłaj wartość serwa tylko gdy jest włączone
+                SendServoValue6(trackServoValue6.Value);
+            }
+        }
+
+
+
+        private void SendServoValue5(int value)
+        {
+            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
+
+            // Dopisz wiadomość na końcu TextBox
+            port.WriteLine(message);
+        }
+        private void SendServoValue6(int value)
+        {
+            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
+
+            // Dopisz wiadomość na końcu TextBox
+            port.WriteLine(message);
+        }
+
+        #endregion
+        //================================================================================//
         private bool PingPi()
         {
             try
@@ -564,60 +830,6 @@ namespace SterowanieStanowiskiem
                 lblInternetStatus.ForeColor = Color.Red;
             }
         }
-        
-        
-        
-        
-        private void UpdateServoLabel1()
-        {
-            lblServoValue1.Text = $"Wartość serwa: {trackServoValue1.Value}%";
-        }
-        private void UpdateServoLabel2()
-        {
-            lblServoValue1.Text = $"Wartość serwa: {trackServoValue1.Value}%";
-        }
-
-        private void trackServoValue_Scroll_1(object sender, EventArgs e)
-        {
-            UpdateServoLabel1();
-
-            if (!isValve1Open)
-            {
-                // Wysyłaj wartość serwa tylko gdy jest włączone
-                SendServoValue1(trackServoValue1.Value);
-            }
-        }
-
-        private void trackServoValue2_Scroll(object sender, EventArgs e)
-        {
-            UpdateServoLabel2();
-
-            if (!isValve2Open)
-            {
-                // Wysyłaj wartość serwa tylko gdy jest włączone
-                SendServoValue2(trackServoValue2.Value);
-            }
-        }
-
-
-
-        private void SendServoValue1(int value)
-        {
-            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
-
-            // Dopisz wiadomość na końcu TextBox
-            port.WriteLine(message);
-        }
-        private void SendServoValue2(int value)
-        {
-            string message = $"[DEBUG] Wysyłam do Pi: SERVO:{value}%";
-
-            // Dopisz wiadomość na końcu TextBox
-            port.WriteLine(message);
-        }
-
-
-
 
        
     }
