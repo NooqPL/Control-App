@@ -34,7 +34,7 @@ A Windows Forms application for managing and monitoring a **liquid-fuel engine t
 
 ## 🧪 Use Case: University Rocket Test Stand
 
-This project is being developed for academic purposes as part of a student research group or thesis work. It allows for safe, automated and visual control over fuel valves, pressure readings, and ignition sequences of a small rocket engine test stand.
+This project is being developed for academic purposes as part of a student rocket team. It allows for safe, automated and visual control over fuel valves, pressure readings, and ignition sequences of a small rocket engine test stand.
 
 ---
 
