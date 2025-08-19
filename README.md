@@ -19,7 +19,7 @@ A Windows Forms application for managing and monitoring a **liquid-fuel engine t
 - ❌ **Two operation modes**:
   - Test mode (manual)
   - Automatic mode with programmable sequences
-- ❌ **Custom sequence editor** 
+- ✅ **Custom sequence editor** 
 - 🔒 Designed with safety and clarity in mind
 
 ---
