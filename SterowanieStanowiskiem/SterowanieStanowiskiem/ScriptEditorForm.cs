@@ -96,6 +96,7 @@ namespace SterowanieStanowiskiem
 
         private async void btnRunLive_Click(object sender, EventArgs e)
         {
+            richTextBoxSimulation.Clear();
             await RunScriptAsync(richTextBox1.Text, true);
         }
 
@@ -122,11 +123,96 @@ namespace SterowanieStanowiskiem
                             string action = parts[2].ToUpper();
 
                             if (live)
-                                mainForm.ToggleValve(valve, action);
+                            {
+                                bool? desiredState = null;
+
+                                switch (action.ToUpper())
+                                {
+                                    case "ON":
+                                        desiredState = true;
+                                        break;
+                                    case "OFF":
+                                        desiredState = false;
+                                        break;
+                                    case "TOGGLE":
+                                        desiredState = null; // means flip current state
+                                        break;
+                                    default:
+                                        AppendSimulationLog($"Unknown valve action: {action}");
+                                        continue; // skip this line
+                                }
+
+
+                                switch (valve)
+                                {
+                                    case "RED1":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve1State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve1State(!mainForm.isValve1Open);
+                                        break;
+
+                                    case "RED2":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve2State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve2State(!mainForm.isValve2Open);
+                                        break;
+                                    case "RED3":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve3State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve3State(!mainForm.isValve3Open);
+                                        break;
+
+                                    case "RED4":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve4State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve4State(!mainForm.isValve4Open);
+                                        break;
+                                    case "BLUE1":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve5State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve5State(!mainForm.isValve5Open);
+                                        break;
+
+                                    case "BLUE2":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve6State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve6State(!mainForm.isValve6Open);
+                                        break;
+                                    case "BLUE3":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve7State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve7State(!mainForm.isValve7Open);
+                                        break;
+
+                                    case "BLUE4":
+                                        if (desiredState.HasValue)
+                                            mainForm.SetValve8State(desiredState.Value);
+                                        else
+                                            mainForm.SetValve8State(!mainForm.isValve8Open);
+                                        break;
+
+
+                                    // add more valves here
+                                    default:
+                                        AppendSimulationLog($"Unknown valve: {valve}");
+                                        break;
+                                }
+                            }
                             else
+                            {
                                 AppendSimulationLog($"Simulate: Valve {valve} -> {action}");
+                            }
                         }
                         break;
+
+
 
                     case "SERVO1":
                     case "SERVO2":
@@ -143,6 +229,7 @@ namespace SterowanieStanowiskiem
                                     case "SERVO3": mainForm.SetServo3(servoValue); break;
                                     case "SERVO4": mainForm.SetServo4(servoValue); break;
                                 }
+                                
                             }
                             else
                             {
@@ -154,9 +241,10 @@ namespace SterowanieStanowiskiem
                     case "WAIT":
                         if (parts.Length >= 2 && int.TryParse(parts[1], out int ms))
                         {
-                            if (!live)
+                            if (!live) 
                                 AppendSimulationLog($"Simulate: WAIT {ms} ms");
-                            await Task.Delay(ms);
+                             await Task.Delay(ms);
+                            
                         }
                         else
                         {

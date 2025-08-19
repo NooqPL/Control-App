@@ -74,21 +74,21 @@ namespace SterowanieStanowiskiem
         }
 
 
-       
+
 
 
 
 
         //================================================================================//
-        private bool isValve1Open = false;
-        private bool isValve2Open = false;
-        private bool isValve3Open = false;
-        private bool isValve4Open = false;
+        public bool isValve1Open = false;
+        public bool isValve2Open = false;
+        public bool isValve3Open = false;
+        public bool isValve4Open = false;
 
-        private bool isValve5Open = false;
-        private bool isValve6Open = false;
-        private bool isValve7Open = false;
-        private bool isValve8Open = false;
+        public bool isValve5Open = false;
+        public bool isValve6Open = false;
+        public bool isValve7Open = false;
+        public bool isValve8Open = false;
 
 
 
@@ -98,191 +98,292 @@ namespace SterowanieStanowiskiem
         private bool valveOpen2 = false;
         private bool valveOpen3 = false;
         private bool valveOpen4 = false;
-        private void ToggleValve1()
+        private void ToggleValve1(string color = null)
         {
+            // Toggle state
             valveOpen1 = !valveOpen1;
 
-            if (valveOpen1)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator1.BackColor = Color.LightGreen;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator1.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator1.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator1.BackColor = valveOpen1 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
             else
             {
-                panelValveIndicator1.BackColor = Color.IndianRed;
+                // Default colors based on state
+                panelValveIndicator1.BackColor = valveOpen1 ? Color.LightGreen : Color.IndianRed;
             }
         }
-        private void ToggleValve2()
+
+        private void ToggleValve2(string color = null)
         {
             valveOpen2 = !valveOpen2;
 
-            if (valveOpen2)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator2.BackColor = Color.LightGreen;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator2.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator2.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator2.BackColor = valveOpen3 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
             else
             {
-                panelValveIndicator2.BackColor = Color.IndianRed;
+                // Default colors based on state
+                panelValveIndicator2.BackColor = valveOpen2 ? Color.LightGreen : Color.IndianRed;
             }
         }
-        private void ToggleValve3()
+        private void ToggleValve3(string color = null)
         {
             valveOpen3 = !valveOpen3;
 
-            if (valveOpen3)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator3.BackColor = Color.LightGreen;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator3.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator3.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator3.BackColor = valveOpen3 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
             else
             {
-                panelValveIndicator3.BackColor = Color.IndianRed;
+                // Default colors based on state
+                panelValveIndicator3.BackColor = valveOpen3 ? Color.LightGreen : Color.IndianRed;
             }
         }
-        private void ToggleValve4()
+        private void ToggleValve4(string color = null)
         {
             valveOpen4 = !valveOpen4;
 
-            if (valveOpen4)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator4.BackColor = Color.LightGreen;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator4.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator4.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator4.BackColor = valveOpen4 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
             else
             {
-                panelValveIndicator4.BackColor = Color.IndianRed;
+                // Default colors based on state
+                panelValveIndicator4.BackColor = valveOpen4 ? Color.LightGreen : Color.IndianRed;
             }
         }
         #endregion
-        
-        #region Color Buttons RED
-    //======================= COLOR BUTTONs ================================================//
-    private void btnToggleValve1_Click(object sender, EventArgs e)
-        {
 
-            if (!isValve1Open)
+        #region Color Buttons RED
+        //======================= COLOR BUTTONs ================================================//
+
+
+        public void btnToggleValve1_Click(object sender, EventArgs e)
+        {
+            SetValve1State(!isValve1Open); // just flip current state
+            
+        }
+        public void btnToggleValve2_Click(object sender, EventArgs e)
+        {
+            SetValve2State(!isValve2Open);
+            
+        }
+        public void btnToggleValve3_Click(object sender, EventArgs e)
+        {
+            SetValve3State(!isValve3Open); // just flip current state
+
+        }
+        public void btnToggleValve4_Click(object sender, EventArgs e)
+        {
+            SetValve4State(!isValve4Open);
+
+        }
+
+
+        // ----- NEW METHODS -----
+        public void SetValve1State(bool open)
+        {
+            if (isValve1Open == open) return; // already in desired state
+
+            if (open)
             {
+                ToggleValve1("GREEN");
                 port.WriteLine("OPEN1");
                 isValve1Open = true;
                 btnToggleValve1.Text = "OPEN";
                 btnToggleValve1.BackColor = Color.LightGreen;
-                // checkBoxValve1.Checked = true;
-                ToggleValve1();
-
-                // Włącz serwo: aktywuj TrackBar
+                
+                // Enable servo trackbar
                 trackServoValue1.Enabled = true;
-
-                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
                 if (trackServoValue1.Value == 0)
                     trackServoValue1.Value = 0;
 
-                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
                 SendServoValue1(trackServoValue1.Value);
             }
             else
             {
+                ToggleValve1("RED");
                 port.WriteLine("CLOSE1");
                 isValve1Open = false;
                 btnToggleValve1.Text = "CLOSE";
                 btnToggleValve1.BackColor = Color.IndianRed;
-                // checkBoxValve1.Checked = false;
-                ToggleValve1();
 
-
-
-                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                // Disable servo trackbar
                 trackServoValue1.Value = 0;
                 trackServoValue1.Enabled = false;
 
-                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
                 SendServoValue1(0);
             }
+
             UpdateServoLabel1();
         }
 
-        private void btnToggleValve2_Click(object sender, EventArgs e)
+        public void SetValve2State(bool open)
         {
-            if (!isValve2Open)
+            if (isValve2Open == open) return;
+
+            if (open)
             {
+                ToggleValve2("GREEN");
                 port.WriteLine("OPEN2");
                 isValve2Open = true;
                 btnToggleValve2.Text = "OPEN";
                 btnToggleValve2.BackColor = Color.LightGreen;
-                //  checkBoxValve2.Checked = true;
-                ToggleValve2();
-                // Włącz serwo: aktywuj TrackBar
-                trackServoValue2.Enabled = true;
 
-                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                trackServoValue2.Enabled = true;
                 if (trackServoValue2.Value == 0)
                     trackServoValue2.Value = 0;
 
-                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
                 SendServoValue2(trackServoValue2.Value);
             }
             else
             {
+                ToggleValve2("RED");
                 port.WriteLine("CLOSE2");
                 isValve2Open = false;
                 btnToggleValve2.Text = "CLOSE";
                 btnToggleValve2.BackColor = Color.IndianRed;
-                //  checkBoxValve2.Checked = false;
-                ToggleValve2();
 
-                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
                 trackServoValue2.Value = 0;
                 trackServoValue2.Enabled = false;
 
-                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
                 SendServoValue2(0);
             }
-            UpdateServoLabel2();
 
-            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+            UpdateServoLabel2();
         }
-        private void btnToggleValve3_Click(object sender, EventArgs e)
+
+        public void SetValve3State(bool open)
         {
-            if (!isValve3Open)
+            if (isValve3Open == open) return;
+
+            if (open)
             {
+                ToggleValve3("GREEN");
                 port.WriteLine("OPEN3");
                 isValve3Open = true;
                 btnToggleValve3.Text = "OPEN";
                 btnToggleValve3.BackColor = Color.LightGreen;
-                //  checkBoxValve2.Checked = true;
-                ToggleValve3();
+
+              //  trackServoValue3.Enabled = true;
+              //  if (trackServoValue3.Value == 0)
+              //      trackServoValue3.Value = 0;
+              //
+              //  SendServoValue3(trackServoValue3.Value);
             }
             else
             {
+                ToggleValve3("RED");
                 port.WriteLine("CLOSE3");
                 isValve3Open = false;
                 btnToggleValve3.Text = "CLOSE";
                 btnToggleValve3.BackColor = Color.IndianRed;
-                //  checkBoxValve2.Checked = false;
-                ToggleValve3();
+
+              //  trackServoValue2.Value = 0;
+              //  trackServoValue2.Enabled = false;
+              //
+              //  SendServoValue2(0);
             }
 
-            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+            //UpdateServoLabel3();
         }
-        private void btnToggleValve4_Click(object sender, EventArgs e)
+
+        public void SetValve4State(bool open)
         {
-            if (!isValve4Open)
+            if (isValve4Open == open) return;
+
+            if (open)
             {
+                ToggleValve4("GREEN");
                 port.WriteLine("OPEN4");
                 isValve4Open = true;
                 btnToggleValve4.Text = "OPEN";
                 btnToggleValve4.BackColor = Color.LightGreen;
-                //  checkBoxValve4.Checked = true;
-                ToggleValve4();
+
+                //  trackServoValue3.Enabled = true;
+                //  if (trackServoValue3.Value == 0)
+                //      trackServoValue3.Value = 0;
+                //
+                //  SendServoValue3(trackServoValue3.Value);
             }
             else
             {
-                port.WriteLine("CLOSE4");
+                ToggleValve4("RED");
+                port.WriteLine("CLOSE3");
                 isValve4Open = false;
                 btnToggleValve4.Text = "CLOSE";
                 btnToggleValve4.BackColor = Color.IndianRed;
-                //  checkBoxValve4.Checked = false;
-                ToggleValve4();
+
+                //  trackServoValue2.Value = 0;
+                //  trackServoValue2.Enabled = false;
+                //
+                //  SendServoValue2(0);
             }
 
-            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+            //UpdateServoLabel4();
         }
+
+
+     
+
+          
+        
 
         //=====================================================================================//
         #endregion
@@ -422,57 +523,94 @@ namespace SterowanieStanowiskiem
         private bool valveOpen6 = false;
         private bool valveOpen7 = false;
         private bool valveOpen8 = false;
-        
-        private void ToggleValve5()
+   
+            
+        private void ToggleValve5(string color = null)
         {
             valveOpen5 = !valveOpen5;
 
-            if (valveOpen5)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator5.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator5.BackColor = Color.IndianRed;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator5.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator5.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator5.BackColor = valveOpen5 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
         }
-        private void ToggleValve6()
+        private void ToggleValve6(string color = null)
         {
             valveOpen6 = !valveOpen6;
 
-            if (valveOpen6)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator6.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator6.BackColor = Color.IndianRed;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator6.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator6.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator6.BackColor = valveOpen6 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
         }
-        private void ToggleValve7()
+        private void ToggleValve7(string color = null)
         {
             valveOpen7 = !valveOpen7;
 
-            if (valveOpen7)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator7.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator7.BackColor = Color.IndianRed;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator7.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator7.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator7.BackColor = valveOpen7 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
         }
-        private void ToggleValve8()
+        private void ToggleValve8(string color = null)
         {
             valveOpen8 = !valveOpen8;
 
-            if (valveOpen8)
+            // Decide the panel color
+            if (!string.IsNullOrEmpty(color))
             {
-                panelValveIndicator8.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panelValveIndicator8.BackColor = Color.IndianRed;
+                // Use specified color
+                switch (color.ToUpper())
+                {
+                    case "GREEN":
+                        panelValveIndicator8.BackColor = Color.LightGreen;
+                        break;
+                    case "RED":
+                        panelValveIndicator8.BackColor = Color.IndianRed;
+                        break;
+                    default:
+                        panelValveIndicator8.BackColor = valveOpen8 ? Color.LightGreen : Color.IndianRed;
+                        break;
+                }
             }
         }
 
@@ -482,135 +620,172 @@ namespace SterowanieStanowiskiem
 
         #region Color Buttons BLUE
         //======================= COLOR BUTTONs ================================================//
-        private void btnToggleValve5_Click(object sender, EventArgs e)
-        {
 
-            if (!isValve5Open)
+        public void btnToggleValve5_Click(object sender, EventArgs e)
+        {
+            SetValve5State(!isValve5Open); // just flip current state
+        }
+        public void btnToggleValve6_Click(object sender, EventArgs e)
+        {
+            SetValve6State(!isValve6Open); // just flip current state
+        }
+        public void btnToggleValve7_Click(object sender, EventArgs e)
+        {
+            SetValve7State(!isValve7Open); // just flip current state
+        }
+        public void btnToggleValve8_Click(object sender, EventArgs e)
+        {
+            SetValve8State(!isValve8Open); // just flip current state
+        }
+
+
+
+
+        public void SetValve5State(bool open)
+        {
+            if (isValve5Open == open) return; // already in desired state
+
+            if (open)
             {
+                ToggleValve8("GREEN");
                 port.WriteLine("OPEN5");
                 isValve5Open = true;
                 btnToggleValve5.Text = "OPEN";
                 btnToggleValve5.BackColor = Color.LightGreen;
-                // checkBoxValve5.Checked = true;
-                ToggleValve8();
 
-                // Włącz serwo: aktywuj TrackBar
+                // Enable servo trackbar
                 trackServoValue5.Enabled = true;
-
-                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
                 if (trackServoValue5.Value == 0)
                     trackServoValue5.Value = 0;
 
-                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
                 SendServoValue5(trackServoValue5.Value);
             }
             else
             {
+                ToggleValve8("RED");
                 port.WriteLine("CLOSE5");
                 isValve5Open = false;
                 btnToggleValve5.Text = "CLOSE";
                 btnToggleValve5.BackColor = Color.IndianRed;
-                // checkBoxValve5.Checked = false;
-                ToggleValve8();
 
-
-
-                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                // Disable servo trackbar
                 trackServoValue5.Value = 0;
                 trackServoValue5.Enabled = false;
 
-                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
                 SendServoValue5(0);
             }
+
             UpdateServoLabel5();
         }
-
-        private void btnToggleValve6_Click(object sender, EventArgs e)
+        public void SetValve6State(bool open)
         {
-            if (!isValve6Open)
+            if (isValve6Open == open) return; // already in desired state
+
+            if (open)
             {
+                ToggleValve6("GREEN");
                 port.WriteLine("OPEN6");
                 isValve6Open = true;
                 btnToggleValve6.Text = "OPEN";
                 btnToggleValve6.BackColor = Color.LightGreen;
-                //  checkBoxValve6.Checked = true;
-                ToggleValve6();
-                // Włącz serwo: aktywuj TrackBar
-                trackServoValue6.Enabled = true;
 
-                // Możesz też od razu ustawić np. na 50% lub zostawić ostatnią wartość
+                // Enable servo trackbar
+                trackServoValue6.Enabled = true;
                 if (trackServoValue6.Value == 0)
                     trackServoValue6.Value = 0;
 
-                // Wyślij komendę do Pi, aby obudzić serwo na aktualnej wartości
                 SendServoValue6(trackServoValue6.Value);
             }
             else
             {
+                ToggleValve6("RED");
                 port.WriteLine("CLOSE6");
                 isValve6Open = false;
                 btnToggleValve6.Text = "CLOSE";
                 btnToggleValve6.BackColor = Color.IndianRed;
-                //  checkBoxValve6.Checked = false;
-                ToggleValve6();
 
-                // Wyłącz serwo: ustaw wartość na 0 i zablokuj TrackBar
+                // Disable servo trackbar
                 trackServoValue6.Value = 0;
                 trackServoValue6.Enabled = false;
 
-                // Wyślij komendę do Pi, aby wyłączyć serwo (ustaw 0)
                 SendServoValue6(0);
             }
-            UpdateServoLabel6();
 
-            // LogTelemetry(isValve6Open ? "OPEN6" : "CLOSE6");
+            UpdateServoLabel6();
         }
-        private void btnToggleValve7_Click(object sender, EventArgs e)
+        public void SetValve7State(bool open)
         {
-            if (!isValve7Open)
+            if (isValve7Open == open) return; // already in desired state
+
+            if (open)
             {
+                ToggleValve7("GREEN");
                 port.WriteLine("OPEN7");
                 isValve7Open = true;
                 btnToggleValve7.Text = "OPEN";
                 btnToggleValve7.BackColor = Color.LightGreen;
-                //  checkBoxValve2.Checked = true;
-                ToggleValve7();
+
+                // Enable servo trackbar
+                // trackServoValue7.Enabled = true;
+                //if (trackServoValue7.Value == 0)
+                // trackServoValue7.Value = 0;
+
+                //SendServoValue7(trackServoValue7.Value);
             }
             else
             {
+                ToggleValve7("RED");
                 port.WriteLine("CLOSE7");
                 isValve7Open = false;
                 btnToggleValve7.Text = "CLOSE";
                 btnToggleValve7.BackColor = Color.IndianRed;
-                //  checkBoxValve2.Checked = false;
-                ToggleValve7();
+
+                // Disable servo trackbar
+                //trackServoValue7.Value = 0;
+                //trackServoValue7.Enabled = false;
+
+                //SendServoValue7(0);
             }
 
-            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+            //UpdateServoLabel7();
         }
-        private void btnToggleValve8_Click(object sender, EventArgs e)
+        public void SetValve8State(bool open)
         {
-            if (!isValve8Open)
+            if (isValve8Open == open) return; // already in desired state
+
+            if (open)
             {
+                ToggleValve5("GREEN");
                 port.WriteLine("OPEN8");
                 isValve8Open = true;
                 btnToggleValve8.Text = "OPEN";
                 btnToggleValve8.BackColor = Color.LightGreen;
-                //  checkBoxValve8.Checked = true;
-                ToggleValve5();
+
+                // Enable servo trackbar
+                // trackServoValue8.Enabled = true;
+                // if (trackServoValue8.Value == 0)
+                //trackServoValue8.Value = 0;
+
+                //SendServoValue8(trackServoValue8.Value);
             }
             else
             {
+                ToggleValve5("RED");
                 port.WriteLine("CLOSE8");
                 isValve8Open = false;
                 btnToggleValve8.Text = "CLOSE";
                 btnToggleValve8.BackColor = Color.IndianRed;
-                //  checkBoxValve8.Checked = false;
-                ToggleValve5();
+
+                // Disable servo trackbar
+                //trackServoValue8.Value = 0;
+                //trackServoValue8.Enabled = false;
+
+                //SendServoValue8(0);
             }
 
-            // LogTelemetry(isValve2Open ? "OPEN2" : "CLOSE2");
+            //UpdateServoLabel8();
         }
+
 
         //=====================================================================================//
         #endregion
