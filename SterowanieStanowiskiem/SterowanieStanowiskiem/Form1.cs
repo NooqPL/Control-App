@@ -74,6 +74,12 @@ namespace SterowanieStanowiskiem
         }
 
 
+       
+
+
+
+
+        //================================================================================//
         private bool isValve1Open = false;
         private bool isValve2Open = false;
         private bool isValve3Open = false;
@@ -621,24 +627,20 @@ namespace SterowanieStanowiskiem
 
         private void trackServoValue5_Scroll(object sender, EventArgs e)
         {
+            
             UpdateServoLabel5();
 
-            if (isValve5Open)
-            {
-                // Wysyłaj wartość serwa tylko gdy jest włączone
-                SendServoValue5(trackServoValue5.Value);
-            }
+            if (isValve5Open) SendServoValue5(trackServoValue5.Value);
         }
 
         private void trackServoValue6_Scroll(object sender, EventArgs e)
         {
+            
+
             UpdateServoLabel6();
 
-            if (isValve6Open)
-            {
-                // Wysyłaj wartość serwa tylko gdy jest włączone
-                SendServoValue6(trackServoValue6.Value);
-            }
+            if (isValve6Open) SendServoValue6(trackServoValue6.Value);
+            
         }
 
 
@@ -836,6 +838,76 @@ namespace SterowanieStanowiskiem
             }
         }
 
-       
+        private void scriptEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScriptEditorForm editor = new ScriptEditorForm(this);
+            editor.Show(); // use ShowDialog() if you want it modal
+        }
+
+        public void ToggleValve(string valve, string action)
+        {
+            // Normalize action
+            action = action.ToUpper();
+
+            switch (valve)
+            {
+                case "RED1":
+                    btnToggleValve1.PerformClick();
+                    break;
+                case "RED2":
+                    btnToggleValve2.PerformClick();
+                    break;
+                case "RED3":
+                    btnToggleValve3.PerformClick();
+                    break;
+                case "RED4":
+                    btnToggleValve4.PerformClick();
+                    break;
+
+                case "BLUE1":
+                    btnToggleValve5.PerformClick();
+                    break;
+                case "BLUE2":
+                    btnToggleValve6.PerformClick();
+                    break;
+                case "BLUE3":
+                    btnToggleValve7.PerformClick();
+                    break;
+                case "BLUE4":
+                    btnToggleValve8.PerformClick();
+                    break;
+            }
+        }
+
+        public void SetServo1(int value)
+        {
+            trackServoValue1.Value = Math.Max(trackServoValue1.Minimum, Math.Min(trackServoValue1.Maximum, value));
+            UpdateServoLabel1();
+            if (isValve1Open) SendServoValue1(trackServoValue1.Value);
+        }
+
+        public void SetServo2(int value)
+        {
+            trackServoValue2.Value = Math.Max(trackServoValue2.Minimum, Math.Min(trackServoValue2.Maximum, value));
+            UpdateServoLabel2();
+            if (isValve2Open) SendServoValue2(trackServoValue2.Value);
+        }
+
+        public void SetServo3(int value)
+        {
+            trackServoValue5.Value = Math.Max(trackServoValue5.Minimum, Math.Min(trackServoValue5.Maximum, value));
+            UpdateServoLabel5();
+            if (isValve5Open) SendServoValue5(trackServoValue5.Value);
+        }
+
+        public void SetServo4(int value)
+        {
+            trackServoValue6.Value = Math.Max(trackServoValue6.Minimum, Math.Min(trackServoValue6.Maximum, value));
+            UpdateServoLabel6();
+            if (isValve6Open) SendServoValue6(trackServoValue6.Value);
+        }
+
+        // and same for Servo3, Servo4
+
     }
 }
