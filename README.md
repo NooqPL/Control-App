@@ -39,9 +39,3 @@ A Windows Forms application for managing and monitoring a **liquid-fuel engine t
 This project is being developed for academic purposes as part of a student rocket team. It allows for safe, automated and visual control over fuel valves, pressure readings, and ignition sequences of a small rocket engine test stand.
 
 ---
-
-## 🧭 Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rocket-test-stand.git
