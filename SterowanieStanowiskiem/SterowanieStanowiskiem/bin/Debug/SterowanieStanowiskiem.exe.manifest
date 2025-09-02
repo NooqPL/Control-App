@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SterowanieStanowiskiem.exe" size="315904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SterowanieStanowiskiem.exe" size="1149952">
       <assemblyIdentity name="SterowanieStanowiskiem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>748AdjH+3q1pBmrVUX+ECKox7/GTHcWlE+KcUj/GMV8=</dsig:DigestValue>
+        <dsig:DigestValue>afjUn+Vx//V6RpCU1Jtv935zBVlLwDWX6durd/gX6eE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -70,6 +70,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>hGBQkJFnvfkZ51GAAS6peBiAnKpySuwOI8Uy6YNNRC4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\stargate-icon-design-illustration-vector.jpg" size="58024">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>U0iAHy/hHfOf+S3UdxWrWoHHcoA3Vtd3oxnyLR0Nk4U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="stand.png" size="5425">

@@ -95,6 +95,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ScriptEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +109,6 @@
     <Compile Include="PiTcpClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +153,8 @@
     <None Include="Resources\ArcLogo.png" />
     <None Include="Resources\B_W_stand.png" />
     <None Include="Resources\model8.png" />
+    <None Include="Resources\Stargate veco.png" />
+    <Content Include="Resources\stargate-icon-design-illustration-vector.jpg" />
     <Content Include="stand.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

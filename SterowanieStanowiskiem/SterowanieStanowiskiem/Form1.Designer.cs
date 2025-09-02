@@ -38,6 +38,8 @@
             this.textBoxSend = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblInternetStatus = new System.Windows.Forms.Label();
+            this.lblPiStatus = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +50,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.serialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.scriptEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnToggleValve1 = new System.Windows.Forms.Button();
             this.btnToggleValve2 = new System.Windows.Forms.Button();
             this.progressPressure1 = new System.Windows.Forms.ProgressBar();
@@ -87,11 +90,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.PressureLabel1 = new System.Windows.Forms.Label();
             this.pictureBackground = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelFuelContainer = new System.Windows.Forms.Panel();
             this.panelFuelLevel = new System.Windows.Forms.Panel();
-            this.lblInternetStatus = new System.Windows.Forms.Label();
-            this.lblPiStatus = new System.Windows.Forms.Label();
             this.statusTimer = new System.Windows.Forms.Timer(this.components);
             this.trackServoValue1 = new System.Windows.Forms.TrackBar();
             this.lblServoValue1 = new System.Windows.Forms.Label();
@@ -145,12 +145,10 @@
             this.trackServoValue6 = new System.Windows.Forms.TrackBar();
             this.label25 = new System.Windows.Forms.Label();
             this.progressPressure4 = new System.Windows.Forms.ProgressBar();
-            this.scriptEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelFuelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -180,7 +178,7 @@
             this.comboBoxBaud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxBaud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBaud.FormattingEnabled = true;
-            this.comboBoxBaud.Location = new System.Drawing.Point(144, 19);
+            this.comboBoxBaud.Location = new System.Drawing.Point(147, 19);
             this.comboBoxBaud.Name = "comboBoxBaud";
             this.comboBoxBaud.Size = new System.Drawing.Size(121, 21);
             this.comboBoxBaud.TabIndex = 16;
@@ -189,7 +187,7 @@
             // btnConnectCom
             // 
             this.btnConnectCom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConnectCom.Location = new System.Drawing.Point(285, 17);
+            this.btnConnectCom.Location = new System.Drawing.Point(294, 19);
             this.btnConnectCom.Name = "btnConnectCom";
             this.btnConnectCom.Size = new System.Drawing.Size(75, 23);
             this.btnConnectCom.TabIndex = 17;
@@ -200,7 +198,7 @@
             // textBoxTerminal
             // 
             this.textBoxTerminal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTerminal.Location = new System.Drawing.Point(175, 46);
+            this.textBoxTerminal.Location = new System.Drawing.Point(220, 46);
             this.textBoxTerminal.Multiline = true;
             this.textBoxTerminal.Name = "textBoxTerminal";
             this.textBoxTerminal.ReadOnly = true;
@@ -231,19 +229,41 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lblInternetStatus);
+            this.groupBox1.Controls.Add(this.lblPiStatus);
             this.groupBox1.Controls.Add(this.comboBoxPorts);
             this.groupBox1.Controls.Add(this.btnSend);
             this.groupBox1.Controls.Add(this.comboBoxBaud);
             this.groupBox1.Controls.Add(this.btnConnectCom);
             this.groupBox1.Controls.Add(this.textBoxSend);
             this.groupBox1.Controls.Add(this.textBoxTerminal);
-            this.groupBox1.Location = new System.Drawing.Point(12, 872);
+            this.groupBox1.Location = new System.Drawing.Point(12, 840);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 177);
+            this.groupBox1.Size = new System.Drawing.Size(421, 209);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serial Port";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblInternetStatus
+            // 
+            this.lblInternetStatus.AutoSize = true;
+            this.lblInternetStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInternetStatus.Location = new System.Drawing.Point(20, 47);
+            this.lblInternetStatus.Name = "lblInternetStatus";
+            this.lblInternetStatus.Size = new System.Drawing.Size(72, 17);
+            this.lblInternetStatus.TabIndex = 1;
+            this.lblInternetStatus.Text = "Internet: ?";
+            // 
+            // lblPiStatus
+            // 
+            this.lblPiStatus.AutoSize = true;
+            this.lblPiStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPiStatus.Location = new System.Drawing.Point(20, 78);
+            this.lblPiStatus.Name = "lblPiStatus";
+            this.lblPiStatus.Size = new System.Drawing.Size(80, 17);
+            this.lblPiStatus.TabIndex = 0;
+            this.lblPiStatus.Text = "Status Pi: ?";
             // 
             // menuStrip1
             // 
@@ -323,6 +343,13 @@
             // 
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
+            // 
+            // scriptEditorToolStripMenuItem
+            // 
+            this.scriptEditorToolStripMenuItem.Name = "scriptEditorToolStripMenuItem";
+            this.scriptEditorToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.scriptEditorToolStripMenuItem.Text = "Script Editor";
+            this.scriptEditorToolStripMenuItem.Click += new System.EventHandler(this.scriptEditorToolStripMenuItem_Click);
             // 
             // btnToggleValve1
             // 
@@ -421,7 +448,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.PressureLabel1);
             this.groupBox2.Controls.Add(this.pictureBackground);
-            this.groupBox2.Location = new System.Drawing.Point(516, 485);
+            this.groupBox2.Location = new System.Drawing.Point(602, 276);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(943, 564);
             this.groupBox2.TabIndex = 31;
@@ -725,19 +752,8 @@
             this.pictureBackground.Name = "pictureBackground";
             this.pictureBackground.Size = new System.Drawing.Size(943, 545);
             this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBackground.TabIndex = 3;
+            this.pictureBackground.TabIndex = 50;
             this.pictureBackground.TabStop = false;
-            this.pictureBackground.Click += new System.EventHandler(this.pictureBackground_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SterowanieStanowiskiem.Properties.Resources.ArcLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
             // 
             // panelFuelContainer
             // 
@@ -757,26 +773,6 @@
             this.panelFuelLevel.Name = "panelFuelLevel";
             this.panelFuelLevel.Size = new System.Drawing.Size(33, 137);
             this.panelFuelLevel.TabIndex = 33;
-            // 
-            // lblInternetStatus
-            // 
-            this.lblInternetStatus.AutoSize = true;
-            this.lblInternetStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternetStatus.Location = new System.Drawing.Point(707, 1160);
-            this.lblInternetStatus.Name = "lblInternetStatus";
-            this.lblInternetStatus.Size = new System.Drawing.Size(72, 17);
-            this.lblInternetStatus.TabIndex = 1;
-            this.lblInternetStatus.Text = "Internet: ?";
-            // 
-            // lblPiStatus
-            // 
-            this.lblPiStatus.AutoSize = true;
-            this.lblPiStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPiStatus.Location = new System.Drawing.Point(707, 1123);
-            this.lblPiStatus.Name = "lblPiStatus";
-            this.lblPiStatus.Size = new System.Drawing.Size(80, 17);
-            this.lblPiStatus.TabIndex = 0;
-            this.lblPiStatus.Text = "Status Pi: ?";
             // 
             // statusTimer
             // 
@@ -1331,23 +1327,13 @@
             this.progressPressure4.Size = new System.Drawing.Size(141, 23);
             this.progressPressure4.TabIndex = 57;
             // 
-            // scriptEditorToolStripMenuItem
-            // 
-            this.scriptEditorToolStripMenuItem.Name = "scriptEditorToolStripMenuItem";
-            this.scriptEditorToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.scriptEditorToolStripMenuItem.Text = "Script Editor";
-            this.scriptEditorToolStripMenuItem.Click += new System.EventHandler(this.scriptEditorToolStripMenuItem_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
-            this.Controls.Add(this.lblInternetStatus);
             this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.lblPiStatus);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TelemetriaGroupBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -1365,7 +1351,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelFuelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).EndInit();
             this.groupBox6.ResumeLayout(false);
@@ -1408,7 +1393,6 @@
         private System.Windows.Forms.ProgressBar progressFuel;
         private System.Windows.Forms.Label labelFuel;
         private System.Windows.Forms.GroupBox TelemetriaGroupBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBackground;
         private System.Windows.Forms.Label PressureLabel6;

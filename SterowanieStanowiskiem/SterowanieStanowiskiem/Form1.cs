@@ -790,7 +790,7 @@ namespace SterowanieStanowiskiem
         //=====================================================================================//
         #endregion
 
-        #region Slinders Servo Output RED
+        #region Slinders Servo Output BLUE
         private void UpdateServoLabel5()
         {
             lblServoValue5.Text = $"Wartość serwa: {trackServoValue5.Value}%";
@@ -991,24 +991,24 @@ namespace SterowanieStanowiskiem
             // Sprawdzenie Pi
             if (PingPi())
             {
-                lblPiStatus.Text = "Status Pi: ✅ Połączono";
+                lblPiStatus.Text = "Status Pi: ✅ Connected ";
                 lblPiStatus.ForeColor = Color.Green;
             }
             else
             {
-                lblPiStatus.Text = "Status Pi: ❌ Brak połączenia";
+                lblPiStatus.Text = "Status Pi: ❌ Not Connected";
                 lblPiStatus.ForeColor = Color.Red;
             }
 
             // Sprawdzenie internetu
             if (CheckInternet())
             {
-                lblInternetStatus.Text = "Internet: 🌐 Dostępny";
+                lblInternetStatus.Text = "Internet: 🌐 Available";
                 lblInternetStatus.ForeColor = Color.Green;
             }
             else
             {
-                lblInternetStatus.Text = "Internet: ❌ Niedostępny";
+                lblInternetStatus.Text = "Internet: ❌ Not Available";
                 lblInternetStatus.ForeColor = Color.Red;
             }
         }
