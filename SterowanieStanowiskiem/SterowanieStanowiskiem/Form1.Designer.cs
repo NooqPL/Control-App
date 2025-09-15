@@ -89,7 +89,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.PressureLabel1 = new System.Windows.Forms.Label();
-            this.pictureBackground = new System.Windows.Forms.PictureBox();
             this.panelFuelContainer = new System.Windows.Forms.Panel();
             this.panelFuelLevel = new System.Windows.Forms.Panel();
             this.statusTimer = new System.Windows.Forms.Timer(this.components);
@@ -145,10 +144,15 @@
             this.trackServoValue6 = new System.Windows.Forms.TrackBar();
             this.label25 = new System.Windows.Forms.Label();
             this.progressPressure4 = new System.Windows.Forms.ProgressBar();
+            this.ARMED_SWITCH = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.armed_text_label = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBackground = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.panelFuelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -160,6 +164,8 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxPorts
@@ -228,7 +234,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lblInternetStatus);
             this.groupBox1.Controls.Add(this.lblPiStatus);
             this.groupBox1.Controls.Add(this.comboBoxPorts);
@@ -417,6 +422,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.armed_text_label);
+            this.groupBox2.Controls.Add(this.panel13);
             this.groupBox2.Controls.Add(this.TankLabel2);
             this.groupBox2.Controls.Add(this.panelValveIndicator3);
             this.groupBox2.Controls.Add(this.TankLabel1);
@@ -744,16 +751,6 @@
             this.PressureLabel1.Size = new System.Drawing.Size(35, 13);
             this.PressureLabel1.TabIndex = 29;
             this.PressureLabel1.Text = "label1";
-            // 
-            // pictureBackground
-            // 
-            this.pictureBackground.Image = global::SterowanieStanowiskiem.Properties.Resources.model8;
-            this.pictureBackground.Location = new System.Drawing.Point(0, 19);
-            this.pictureBackground.Name = "pictureBackground";
-            this.pictureBackground.Size = new System.Drawing.Size(943, 545);
-            this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBackground.TabIndex = 50;
-            this.pictureBackground.TabStop = false;
             // 
             // panelFuelContainer
             // 
@@ -1327,11 +1324,68 @@
             this.progressPressure4.Size = new System.Drawing.Size(141, 23);
             this.progressPressure4.TabIndex = 57;
             // 
+            // ARMED_SWITCH
+            // 
+            this.ARMED_SWITCH.Location = new System.Drawing.Point(12, 111);
+            this.ARMED_SWITCH.Name = "ARMED_SWITCH";
+            this.ARMED_SWITCH.Size = new System.Drawing.Size(75, 23);
+            this.ARMED_SWITCH.TabIndex = 39;
+            this.ARMED_SWITCH.Text = "ARMED";
+            this.ARMED_SWITCH.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel13.Location = new System.Drawing.Point(0, 19);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(943, 10);
+            this.panel13.TabIndex = 40;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel14.Location = new System.Drawing.Point(602, 830);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(943, 10);
+            this.panel14.TabIndex = 41;
+            // 
+            // armed_text_label
+            // 
+            this.armed_text_label.AutoSize = true;
+            this.armed_text_label.Location = new System.Drawing.Point(6, 61);
+            this.armed_text_label.Name = "armed_text_label";
+            this.armed_text_label.Size = new System.Drawing.Size(89, 13);
+            this.armed_text_label.TabIndex = 42;
+            this.armed_text_label.Text = "System Armed ⚠️";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SterowanieStanowiskiem.Properties.Resources.red_alert_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBackground
+            // 
+            this.pictureBackground.Image = global::SterowanieStanowiskiem.Properties.Resources.model8;
+            this.pictureBackground.Location = new System.Drawing.Point(0, 19);
+            this.pictureBackground.Name = "pictureBackground";
+            this.pictureBackground.Size = new System.Drawing.Size(943, 545);
+            this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBackground.TabIndex = 50;
+            this.pictureBackground.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.ARMED_SWITCH);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.TelemetriaGroupBox);
@@ -1350,7 +1404,6 @@
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
             this.panelFuelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).EndInit();
             this.groupBox6.ResumeLayout(false);
@@ -1364,6 +1417,8 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1485,6 +1540,11 @@
         private System.Windows.Forms.ToolStripMenuItem serialToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripMenuItem scriptEditorToolStripMenuItem;
+        private System.Windows.Forms.Button ARMED_SWITCH;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label armed_text_label;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

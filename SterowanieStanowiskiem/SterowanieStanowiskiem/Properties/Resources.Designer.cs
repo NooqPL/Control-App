@@ -103,6 +103,16 @@ namespace SterowanieStanowiskiem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap red_alert_icon {
+            get {
+                object obj = ResourceManager.GetObject("red-alert-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stargate {
             get {
                 object obj = ResourceManager.GetObject("stargate", resourceCulture);

@@ -154,6 +154,7 @@
     <None Include="Resources\B_W_stand.png" />
     <None Include="Resources\model8.png" />
     <None Include="Resources\Stargate veco.png" />
+    <None Include="Resources\red-alert-icon.png" />
     <Content Include="Resources\stargate-icon-design-illustration-vector.jpg" />
     <Content Include="stand.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
