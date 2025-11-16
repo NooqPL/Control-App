@@ -59,6 +59,8 @@
             this.labelFuel = new System.Windows.Forms.Label();
             this.TelemetriaGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.armed_text_label = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.TankLabel2 = new System.Windows.Forms.Label();
             this.panelValveIndicator3 = new System.Windows.Forms.Panel();
             this.TankLabel1 = new System.Windows.Forms.Label();
@@ -89,6 +91,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.PressureLabel1 = new System.Windows.Forms.Label();
+            this.pictureBackground = new System.Windows.Forms.PictureBox();
             this.panelFuelContainer = new System.Windows.Forms.Panel();
             this.panelFuelLevel = new System.Windows.Forms.Panel();
             this.statusTimer = new System.Windows.Forms.Timer(this.components);
@@ -145,14 +148,12 @@
             this.label25 = new System.Windows.Forms.Label();
             this.progressPressure4 = new System.Windows.Forms.ProgressBar();
             this.ARMED_SWITCH = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.armed_text_label = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBackground = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.panelFuelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -165,7 +166,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxPorts
@@ -462,6 +462,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visual Control";
             // 
+            // armed_text_label
+            // 
+            this.armed_text_label.AutoSize = true;
+            this.armed_text_label.Location = new System.Drawing.Point(6, 61);
+            this.armed_text_label.Name = "armed_text_label";
+            this.armed_text_label.Size = new System.Drawing.Size(89, 13);
+            this.armed_text_label.TabIndex = 42;
+            this.armed_text_label.Text = "System Armed ⚠️";
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel13.Location = new System.Drawing.Point(0, 19);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(943, 10);
+            this.panel13.TabIndex = 40;
+            // 
             // TankLabel2
             // 
             this.TankLabel2.AutoSize = true;
@@ -751,6 +768,16 @@
             this.PressureLabel1.Size = new System.Drawing.Size(35, 13);
             this.PressureLabel1.TabIndex = 29;
             this.PressureLabel1.Text = "label1";
+            // 
+            // pictureBackground
+            // 
+            this.pictureBackground.Image = global::SterowanieStanowiskiem.Properties.Resources.model8;
+            this.pictureBackground.Location = new System.Drawing.Point(0, 19);
+            this.pictureBackground.Name = "pictureBackground";
+            this.pictureBackground.Size = new System.Drawing.Size(943, 545);
+            this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBackground.TabIndex = 50;
+            this.pictureBackground.TabStop = false;
             // 
             // panelFuelContainer
             // 
@@ -1333,14 +1360,6 @@
             this.ARMED_SWITCH.Text = "ARMED";
             this.ARMED_SWITCH.UseVisualStyleBackColor = true;
             // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel13.Location = new System.Drawing.Point(0, 19);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(943, 10);
-            this.panel13.TabIndex = 40;
-            // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -1349,34 +1368,15 @@
             this.panel14.Size = new System.Drawing.Size(943, 10);
             this.panel14.TabIndex = 41;
             // 
-            // armed_text_label
-            // 
-            this.armed_text_label.AutoSize = true;
-            this.armed_text_label.Location = new System.Drawing.Point(6, 61);
-            this.armed_text_label.Name = "armed_text_label";
-            this.armed_text_label.Size = new System.Drawing.Size(89, 13);
-            this.armed_text_label.TabIndex = 42;
-            this.armed_text_label.Text = "System Armed ⚠️";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SterowanieStanowiskiem.Properties.Resources.red_alert_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(26, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(43, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBackground
-            // 
-            this.pictureBackground.Image = global::SterowanieStanowiskiem.Properties.Resources.model8;
-            this.pictureBackground.Location = new System.Drawing.Point(0, 19);
-            this.pictureBackground.Name = "pictureBackground";
-            this.pictureBackground.Size = new System.Drawing.Size(943, 545);
-            this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBackground.TabIndex = 50;
-            this.pictureBackground.TabStop = false;
             // 
             // MainWindow
             // 
@@ -1404,6 +1404,7 @@
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
             this.panelFuelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue1)).EndInit();
             this.groupBox6.ResumeLayout(false);
@@ -1418,7 +1419,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackServoValue6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
