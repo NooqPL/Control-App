@@ -1,22 +1,24 @@
-#!/usr/bin/env python3
-import time
 from tcpserver.server import TCPServer
 from tcpserver.hardware import HardwareController
+import time
 
 def main():
-
-    print("=== ControlApp – TCP duplex server starting ===")
-
     hw = HardwareController()
+    server = TCPServer(hw)
 
-    server = TCPServer(
-        host="0.0.0.0",
-        port=9000,
-        hw_controller=hw,
-        telemetry_interval=0.05  # 50ms = 20Hz telemetria
-    )
+    print("[MAIN] Starting TCP server...")
 
-    server.start_blocking()  # działa non-stop
+    try:
+        server.start()
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("[MAIN] Shutting down server...")
+    except Exception as e:
+        print("[MAIN] ERROR:", e)
+    finally:
+        server.stop()
+
 
 if __name__ == "__main__":
     main()

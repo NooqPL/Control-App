@@ -32,6 +32,12 @@ run sudo apt upgrade -y
 # Install dependencies
 run sudo apt install -y git python3 python3-pip python3-venv pigpio mosquitto mosquitto-clients
 
+
+
+
+
+
+
 # Enable pigpio
 run sudo systemctl enable --now pigpiod
 
@@ -52,9 +58,16 @@ if [ ! -d ".venv" ]; then
     run sudo -u $USER_NAME python3 -m venv .venv
 fi
 
+
 # Install Python dependencies
 run sudo -u $USER_NAME .venv/bin/pip install --upgrade pip
+
+# Install requirements
 run sudo -u $USER_NAME .venv/bin/pip install -r requirements.txt
+
+# Ensure pigpio Python module is installed (even if missing in requirements)
+run sudo -u $USER_NAME .venv/bin/pip install pigpio
+
 
 # Copy systemd services
 run sudo cp systemd/${SERVICE_NAME}.service /etc/systemd/system/
