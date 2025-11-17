@@ -1,72 +1,48 @@
 import socket
 import threading
-import time
-from .commands import process_command
 
-class TCPServer:
-    def __init__(self, host, port, hw_controller, telemetry_interval=0.1):
-        self.host = host
-        self.port = port
-        self.hw = hw_controller
-        self.telemetry_interval = telemetry_interval
-        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+HOST = "0.0.0.0"
+PORT = 5000
 
-    def start_blocking(self):
-        self.server_socket.bind((self.host, self.port))
-        self.server_socket.listen()
+clients = []
 
-        print(f"[TCP] Listening on {self.host}:{self.port}")
+def handle_client(conn, addr):
+    print(f"[PI] Client connected from {addr}")
 
-        while True:
-            conn, addr = self.server_socket.accept()
-            print(f"[TCP] Client connected: {addr}")
-
-            # 2 wątki dla jednego klienta
-            threading.Thread(
-                target=self.receive_thread,
-                args=(conn, addr),
-                daemon=True
-            ).start()
-
-            threading.Thread(
-                target=self.telemetry_thread,
-                args=(conn, addr),
-                daemon=True
-            ).start()
-
-    # === Commands Recive ===
-    def receive_thread(self, conn, addr):
+    while True:
         try:
-            while True:
-                data = conn.recv(1024).decode().strip()
-                if not data:
-                    break
+            data = conn.recv(1024)
+            if not data:
+                break
 
-                print(f"[RX] {addr}: {data}")
+            msg = data.decode().strip()
+            print("[RX]", msg)
 
-                response = process_command(data, self.hw)
-                conn.sendall((response + "\n").encode())
+            # → tu możesz obsłużyć komendy z Windows
+            response = f"PI_ECHO: {msg}\n"
+            conn.sendall(response.encode())
 
-        except Exception as e:
-            print(f"[ERROR RX] {addr}: {e}")
-        finally:
-            print(f"[DISCONNECTED] {addr}")
-            conn.close()
+        except:
+            break
 
-    # === TELEMETRY SENDING===
-    def telemetry_thread(self, conn, addr):
-        try:
-            while True:
-                # sending your data
-                telemetry_value = self.hw.get_telemetry()
+    print("[PI] Client disconnected", addr)
+    conn.close()
+    clients.remove(conn)
 
-                msg = f"TEL:{telemetry_value}\n"
-                conn.sendall(msg.encode())
 
-                time.sleep(self.telemetry_interval)
+def start():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind((HOST, PORT))
+    sock.listen(5)
 
-        except Exception as e:
-            print(f"[ERROR TX] {addr}: {e}")
-        finally:
-            conn.close()
+    print(f"[PI] TCP server listening on {PORT}")
+
+    while True:
+        conn, addr = sock.accept()
+        clients.append(conn)
+        threading.Thread(target=handle_client, args=(conn, addr), daemon=True).start()
+
+
+if __name__ == "__main__":
+    start()
