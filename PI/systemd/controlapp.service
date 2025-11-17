@@ -1,0 +1,13 @@
+[Unit]
+Description=Control App Main Service
+After=network.target pigpiod.service
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/app/PI
+ExecStart=/home/pi/app/PI/.venv/bin/python /home/pi/app/PI/main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
