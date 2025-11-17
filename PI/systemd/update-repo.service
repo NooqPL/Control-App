@@ -1,8 +1,0 @@
-[Unit]
-Description=Auto Update Repository Service
-
-[Service]
-Type=oneshot
-User=controlstation
-WorkingDirectory=/home/controlstation/app
-ExecStart=/home/controlstation/app/PI/update_repo.sh

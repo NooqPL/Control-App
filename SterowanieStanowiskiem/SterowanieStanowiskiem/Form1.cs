@@ -842,7 +842,7 @@ namespace SterowanieStanowiskiem
             try
             {
                 Ping ping = new Ping();
-                PingReply reply = ping.Send("192.168.1.10", 500); // IP twojego Pi
+                PingReply reply = ping.Send("192.168.100.145",2000); // IP twojego Pi
                 return reply.Status == IPStatus.Success;
             }
             catch
