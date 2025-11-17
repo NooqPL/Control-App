@@ -3,9 +3,9 @@ Description=Control App Main Service
 After=network.target pigpiod.service
 
 [Service]
-User=pi
-WorkingDirectory=/home/pi/app/PI
-ExecStart=/home/pi/app/PI/.venv/bin/python /home/pi/app/PI/main.py
+User=controlstation
+WorkingDirectory=/home/controlstation/app/PI
+ExecStart=/home/controlstation/app/PI/.venv/bin/python /home/controlstation/app/PI/main.py
 Restart=always
 RestartSec=5
 

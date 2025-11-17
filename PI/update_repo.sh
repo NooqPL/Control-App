@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd /home/pi/app || exit 1
+cd /home/controlstation/app || exit 1
 
 git fetch --all
 LOCAL=$(git rev-parse HEAD)

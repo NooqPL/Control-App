@@ -2,10 +2,10 @@
 set -e
 
 REPO_URL="https://github.com/NooqPL/Control-App.git"
-APP_DIR="/home/pi/app"
+APP_DIR="/home/controlstation/app"
 APP_SUBDIR="PI"
 SERVICE_NAME="controlapp"
-USER_NAME="pi"
+USER_NAME="controlstation"
 
 echo "=== Control-App Raspberry Pi installer ==="
 
