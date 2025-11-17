@@ -5,9 +5,17 @@ After=network.target pigpiod.service
 [Service]
 User=controlstation
 WorkingDirectory=/home/controlstation/app/PI
+Environment=PYTHONPATH=/home/controlstation/app/PI
 ExecStart=/home/controlstation/app/PI/.venv/bin/python3 /home/controlstation/app/PI/main.py
 Restart=always
 RestartSec=5
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
+
+
+
+
+
