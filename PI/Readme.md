@@ -14,4 +14,6 @@ set up your password
 
 afert login in to the device using ssh
 run this command 
+```
 curl -sSL https://raw.githubusercontent.com/NooqPL/Control-App/main/PI/install.sh | bash
+```
