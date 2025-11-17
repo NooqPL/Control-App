@@ -7,60 +7,76 @@ APP_SUBDIR="PI"
 SERVICE_NAME="controlapp"
 USER_NAME="pi"
 
-
-
-
-
 echo "=== Control-App Raspberry Pi installer ==="
 
-
-
+# Function to run commands and report errors
+run() {
+    echo ">>> Running: $*"
+    if ! "$@"; then
+        echo "!!! ERROR: Command failed: $*"
+    fi
+}
 
 # Update system
-sudo apt update && sudo apt upgrade -y
+run sudo apt update
+run sudo apt upgrade -y
 
 # Install dependencies
-sudo apt install -y git python3 python3-pip python3-venv pigpio mosquitto mosquitto-clients
+run sudo apt install -y git python3 python3-pip python3-venv pigpio mosquitto mosquitto-clients
 
-# Enable pigpio (required for servos)
-sudo systemctl enable --now pigpiod
+# Enable pigpio
+run sudo systemctl enable --now pigpiod
 
 # Clone or update repository
 if [ -d "$APP_DIR" ]; then
-  echo "Repository already exists. Updating..."
-  sudo -u $USER_NAME git -C "$APP_DIR" fetch --all
-  sudo -u $USER_NAME git -C "$APP_DIR" reset --hard origin/main
+    echo "Repository already exists. Updating..."
+    run sudo -u $USER_NAME git -C "$APP_DIR" fetch --all
+    run sudo -u $USER_NAME git -C "$APP_DIR" reset --hard origin/main
 else
-  echo "Cloning repository..."
-  sudo -u $USER_NAME git clone "$REPO_URL" "$APP_DIR"
+    echo "Cloning repository..."
+    run sudo -u $USER_NAME git clone "$REPO_URL" "$APP_DIR"
 fi
 
 cd "$APP_DIR/$APP_SUBDIR"
 
 # Create virtual environment
 if [ ! -d ".venv" ]; then
-  sudo -u $USER_NAME python3 -m venv .venv
+    run sudo -u $USER_NAME python3 -m venv .venv
 fi
 
 # Install Python dependencies
-sudo -u $USER_NAME .venv/bin/pip install --upgrade pip
-sudo -u $USER_NAME .venv/bin/pip install -r requirements.txt
+run sudo -u $USER_NAME .venv/bin/pip install --upgrade pip
+run sudo -u $USER_NAME .venv/bin/pip install -r requirements.txt
 
 # Copy systemd services
-sudo cp systemd/${SERVICE_NAME}.service /etc/systemd/system/
-sudo cp systemd/update-repo.service /etc/systemd/system/
-sudo cp systemd/update-repo.timer /etc/systemd/system/
+run sudo cp systemd/${SERVICE_NAME}.service /etc/systemd/system/
+run sudo cp systemd/update-repo.service /etc/systemd/system/
+run sudo cp systemd/update-repo.timer /etc/systemd/system/
 
-sudo systemctl daemon-reload
+run sudo systemctl daemon-reload
 
-# Enable persistent autostart
-sudo systemctl enable --now ${SERVICE_NAME}.service
-sudo systemctl enable --now update-repo.timer
-
-
-
-
-
+# Enable services
+run sudo systemctl enable --now ${SERVICE_NAME}.service
+run sudo systemctl enable --now update-repo.timer
 
 echo "=== INSTALL COMPLETE ==="
-echo "Application is running as systemd service: ${SERVICE_NAME}"
+
+# Final checklist
+echo "=== FINAL CHECKLIST ==="
+for cmd in git python3 pip3 pigpiod mosquitto; do
+    if command -v $cmd >/dev/null 2>&1; then
+        echo "[OK] $cmd installed"
+    else
+        echo "[MISSING] $cmd not found"
+    fi
+done
+
+for svc in pigpiod ${SERVICE_NAME} update-repo.timer; do
+    if systemctl is-active --quiet $svc; then
+        echo "[RUNNING] $svc service active"
+    else
+        echo "[STOPPED] $svc service not running"
+    fi
+done
+
+echo "Installation finished. Check above for any errors or missing components."
