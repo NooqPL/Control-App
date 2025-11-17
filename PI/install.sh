@@ -74,17 +74,17 @@ echo " "
 echo "=== FINAL CHECKLIST ==="
 for cmd in git python3 pip3 pigpiod mosquitto; do
     if command -v $cmd >/dev/null 2>&1; then
-        echo -e "[${GREEN}OK${NC}] $cmd installed"
+        printf "[${GREEN}OK${NC}] %s installed\n" "$cmd"
     else
-        echo -e "[${RED}MISSING${NC}] $cmd not found"
+        printf "[${RED}MISSING${NC}] %s not found\n" "$cmd"
     fi
 done
 
 for svc in pigpiod ${SERVICE_NAME} update-repo.timer; do
     if systemctl is-active --quiet $svc; then
-        echo -e "[${GREEN}RUNNING${NC}] $svc service active"
+        printf "[${GREEN}RUNNING${NC}] %s service active\n" "$svc"
     else
-        echo -e "[${RED}STOPPED${NC}] $svc service not running"
+        printf "[${RED}STOPPED${NC}] %s service not running\n" "$svc"
     fi
 done
 echo " " 
